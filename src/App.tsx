@@ -7,9 +7,12 @@ import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { TechnologyPage } from './pages/TechnologyPage';
 import { ApplicationsPage } from './pages/ApplicationsPage';
+import { ProductPage } from './pages/ProductPage';
 import { ResearchPage } from './pages/ResearchPage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
 import { AboutPage } from './pages/AboutPage';
+import { CareersPage } from './pages/CareersPage';
+import { CollaborationPage } from './pages/CollaborationPage';
 import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
@@ -24,9 +27,12 @@ export const App: React.FC = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/technology" element={<TechnologyPage />} />
               <Route path="/applications" element={<ApplicationsPage />} />
+              <Route path="/product" element={<ProductPage />} />
               <Route path="/research" element={<ResearchPage />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/collaboration" element={<CollaborationPage />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* Fallback to HomePage */}
               <Route path="*" element={<HomePage />} />

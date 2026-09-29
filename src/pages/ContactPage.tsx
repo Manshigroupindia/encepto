@@ -161,6 +161,9 @@ export const ContactPage: React.FC = () => {
                         <option value="sensing">Multi-Sensor Environmental Fusion</option>
                         <option value="embedded">Edge Compute &amp; NPU Quantization</option>
                         <option value="vlm">On-Device Vision-Language Reasoning</option>
+                        <option value="custom-rd">Customer-Specific AI &amp; Software R&amp;D</option>
+                        <option value="internship">Student Internship / Research Fellow</option>
+                        <option value="academic-collab">Academic &amp; Institutional Collaboration</option>
                         <option value="other">Other Frontier Deployment</option>
                       </select>
                     </div>

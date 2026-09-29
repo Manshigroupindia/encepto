@@ -77,6 +77,16 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link
             className={`font-mono-label text-mono-label uppercase transition-colors ${
+              isCurrent('/product')
+                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
+                : 'text-on-surface-variant hover:text-on-surface'
+            }`}
+            to="/product"
+          >
+            Product
+          </Link>
+          <Link
+            className={`font-mono-label text-mono-label uppercase transition-colors ${
               isCurrent('/research')
                 ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
                 : 'text-on-surface-variant hover:text-on-surface'
@@ -84,16 +94,6 @@ export const Navbar: React.FC = () => {
             to="/research"
           >
             Research
-          </Link>
-          <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
-              isCurrent('/case-studies')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
-            }`}
-            to="/case-studies"
-          >
-            Case Studies
           </Link>
           <Link
             className={`font-mono-label text-mono-label uppercase transition-colors ${
@@ -141,10 +141,6 @@ export const Navbar: React.FC = () => {
             Start a Conversation
           </Link>
 
-          {/* User Status Pip */}
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center select-none" title="Field Operator Status: Active">
-            <MaterialIcon name="person" className="text-on-primary text-[18px]" />
-          </div>
 
           {/* Mobile Hamburger Menu Toggle */}
           <button
@@ -194,22 +190,22 @@ export const Navbar: React.FC = () => {
             </Link>
             <Link
               className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
+                isCurrent('/product') ? 'text-secondary font-bold' : 'text-on-surface'
+              }`}
+              to="/product"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Product</span>
+              <span className="text-secondary font-mono-label text-[10px]">03</span>
+            </Link>
+            <Link
+              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
                 isCurrent('/research') ? 'text-secondary font-bold' : 'text-on-surface'
               }`}
               to="/research"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Research</span>
-              <span className="text-secondary font-mono-label text-[10px]">03</span>
-            </Link>
-            <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/case-studies') ? 'text-secondary font-bold' : 'text-on-surface'
-              }`}
-              to="/case-studies"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span>Case Studies</span>
               <span className="text-secondary font-mono-label text-[10px]">04</span>
             </Link>
             <Link
@@ -233,6 +229,39 @@ export const Navbar: React.FC = () => {
               <span className="text-secondary font-mono-label text-[10px]">06</span>
             </Link>
           </nav>
+
+          {/* Secondary Mobile Navigation */}
+          <div className="pt-space-xs border-t border-outline-variant/60 flex items-center justify-around font-mono-label text-[10px] text-on-surface-variant uppercase">
+            <Link
+              to="/case-studies"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`hover:text-on-surface transition-colors ${
+                isCurrent('/case-studies') ? 'text-secondary font-bold' : ''
+              }`}
+            >
+              Case Studies
+            </Link>
+            <span>·</span>
+            <Link
+              to="/careers"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`hover:text-on-surface transition-colors ${
+                isCurrent('/careers') ? 'text-secondary font-bold' : ''
+              }`}
+            >
+              Careers
+            </Link>
+            <span>·</span>
+            <Link
+              to="/collaboration"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`hover:text-on-surface transition-colors ${
+                isCurrent('/collaboration') ? 'text-secondary font-bold' : ''
+              }`}
+            >
+              Collaboration
+            </Link>
+          </div>
 
           <Link
             className="w-full flex items-center justify-center py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider border border-primary font-bold"
