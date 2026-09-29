@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
                 className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
                 to="/careers"
               >
-                Careers &amp; Student Talent
+                Careers
               </Link>
               <Link
                 className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
