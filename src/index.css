@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --surface: 251 249 245;
+    --surface-dim: 219 218 214;
+    --surface-bright: 251 249 245;
+    --surface-container-lowest: 255 255 255;
+    --surface-container-low: 245 243 239;
+    --surface-container: 239 238 234;
+    --surface-container-high: 234 232 228;
+    --surface-container-highest: 228 226 222;
+    --surface-variant: 228 226 222;
+    --surface-tint: 96 94 92;
+    --on-surface: 27 28 26;
+    --on-surface-variant: 74 70 64;
+    --inverse-surface: 48 49 46;
+    --inverse-on-surface: 242 240 237;
+    --outline: 123 118 111;
+    --outline-variant: 204 197 189;
+    --primary: 0 0 0;
+    --on-primary: 255 255 255;
+    --primary-container: 28 27 26;
+    --on-primary-container: 134 131 130;
+    --primary-fixed: 230 226 223;
+    --primary-fixed-dim: 202 198 196;
+    --on-primary-fixed: 28 27 26;
+    --on-primary-fixed-variant: 72 70 69;
+    --inverse-primary: 202 198 196;
+    --secondary: 0 99 152;
+    --on-secondary: 255 255 255;
+    --secondary-container: 91 184 254;
+    --on-secondary-container: 0 71 110;
+    --secondary-fixed: 204 229 255;
+    --secondary-fixed-dim: 147 204 255;
+    --on-secondary-fixed: 0 29 49;
+    --on-secondary-fixed-variant: 0 75 115;
+    --tertiary: 0 0 0;
+    --on-tertiary: 255 255 255;
+    --tertiary-container: 29 27 25;
+    --on-tertiary-container: 135 131 127;
+    --tertiary-fixed: 231 226 221;
+    --tertiary-fixed-dim: 202 198 193;
+    --on-tertiary-fixed: 29 27 25;
+    --on-tertiary-fixed-variant: 73 70 67;
+    --error: 186 26 26;
+    --on-error: 255 255 255;
+    --error-container: 255 218 214;
+    --on-error-container: 147 0 10;
+    --background: 251 249 245;
+    --on-background: 27 28 26;
+  }
+
+  .dark {
+    --surface: 13 14 17;
+    --surface-dim: 9 10 13;
+    --surface-bright: 22 24 29;
+    --surface-container-lowest: 7 8 10;
+    --surface-container-low: 18 19 23;
+    --surface-container: 22 24 29;
+    --surface-container-high: 30 32 39;
+    --surface-container-highest: 37 40 49;
+    --surface-variant: 37 40 49;
+    --surface-tint: 156 163 175;
+    --on-surface: 245 245 247;
+    --on-surface-variant: 156 163 175;
+    --inverse-surface: 251 249 245;
+    --inverse-on-surface: 27 28 26;
+    --outline: 75 85 99;
+    --outline-variant: 39 43 51;
+    --primary: 245 245 247;
+    --on-primary: 13 14 17;
+    --primary-container: 20 22 28;
+    --on-primary-container: 209 213 219;
+    --primary-fixed: 230 226 223;
+    --primary-fixed-dim: 202 198 196;
+    --on-primary-fixed: 28 27 26;
+    --on-primary-fixed-variant: 72 70 69;
+    --inverse-primary: 202 198 196;
+    --secondary: 14 165 233;
+    --on-secondary: 13 14 17;
+    --secondary-container: 3 105 161;
+    --on-secondary-container: 224 242 254;
+    --secondary-fixed: 204 229 255;
+    --secondary-fixed-dim: 147 204 255;
+    --on-secondary-fixed: 0 29 49;
+    --on-secondary-fixed-variant: 0 75 115;
+    --tertiary: 245 245 247;
+    --on-tertiary: 13 14 17;
+    --tertiary-container: 30 32 39;
+    --on-tertiary-container: 156 163 175;
+    --tertiary-fixed: 231 226 221;
+    --tertiary-fixed-dim: 202 198 193;
+    --on-tertiary-fixed: 29 27 25;
+    --on-tertiary-fixed-variant: 73 70 67;
+    --error: 239 68 68;
+    --on-error: 255 255 255;
+    --error-container: 127 29 29;
+    --on-error-container: 254 202 202;
+    --background: 13 14 17;
+    --on-background: 245 245 247;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

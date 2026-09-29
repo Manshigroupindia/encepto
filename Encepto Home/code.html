@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Space+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed-variant":"#004b73","on-surface":"#1b1c1a","background":"#fbf9f5","secondary-container":"#5bb8fe","on-error":"#ffffff","inverse-primary":"#cac6c4","on-error-container":"#93000a","surface-container":"#efeeea","surface-container-highest":"#e4e2de","surface-tint":"#605e5c","on-tertiary":"#ffffff","on-surface-variant":"#4a4640","primary":"#000000","on-tertiary-fixed-variant":"#494643","outline":"#7b766f","primary-container":"#1c1b1a","surface-variant":"#e4e2de","tertiary-fixed":"#e7e2dd","on-background":"#1b1c1a","on-secondary-container":"#00476e","tertiary-fixed-dim":"#cac6c1","on-secondary-fixed":"#001d31","surface":"#fbf9f5","error":"#ba1a1a","on-secondary":"#ffffff","secondary-fixed-dim":"#93ccff","on-tertiary-container":"#87837f","primary-fixed":"#e6e2df","inverse-surface":"#30312e","on-primary-container":"#868382","on-primary-fixed-variant":"#484645","inverse-on-surface":"#f2f0ed","secondary-fixed":"#cce5ff","surface-container-lowest":"#ffffff","outline-variant":"#ccc5bd","surface-bright":"#fbf9f5","primary-fixed-dim":"#cac6c4","on-primary-fixed":"#1c1b1a","tertiary":"#000000","surface-container-high":"#eae8e4","on-primary":"#ffffff","tertiary-container":"#1d1b19","surface-dim":"#dbdad6","on-tertiary-fixed":"#1d1b19","secondary":"#006398","surface-container-low":"#f5f3ef","error-container":"#ffdad6"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem","margin-mobile":"1rem","gutter":"1.5rem","space-md":"1rem","margin":"3rem","space-xs":"0.25rem","space-xl":"2.5rem"},"fontFamily":{"headline-lg-mobile":["Geist"],"body-lg":["Space Mono"],"mono-metric":["Space Mono"],"headline-md":["Geist"],"headline-lg":["Geist"],"mono-label":["Space Mono"],"display-hero":["Geist"],"display-hero-mobile":["Geist"],"body-sm":["Space Mono"],"body-md":["Space Mono"]},"fontSize":{"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"400"}],"mono-metric":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"500"}],"mono-label":["11px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"display-hero":["56px",{"lineHeight":"60px","letterSpacing":"-0.03em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant"><div class="h-16 w-full px-margin-mobile lg:px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex flex-col" data-path="technology" href="#"><span class="font-headline-md text-headline-md tracking-wider text-on-surface uppercase font-bold">ENCEPTO</span><span class="font-mono-label text-mono-label text-on-surface-variant uppercase tracking-widest">Embedded AI · Intelligent Sensing</span></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-bold"><a aria-current="page" class="uppercase transition-colors text-on-surface font-bold" data-path="technology" href="#">Technology</a><a class="font-mono-label text-mono-label uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="applications" href="#">Applications</a><a class="font-mono-label text-mono-label uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="research" href="#">Research</a><a class="font-mono-label text-mono-label uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="case-studies" href="#">Case Studies</a><a class="font-mono-label text-mono-label uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-md"><button aria-label="Toggle UI Theme" class="w-9 h-9 border border-outline-variant flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors" onclick="document.documentElement.classList.toggle('dark')" type="button"><span class="material-symbols-outlined text-[18px] text-on-surface dark:hidden">dark_mode</span><span class="material-symbols-outlined text-[18px] text-on-surface hidden dark:inline-block">light_mode</span></button><a class="hidden sm:inline-flex items-center justify-center px-space-md h-9 bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest hover:text-on-surface transition-colors border border-primary" data-path="contact" href="#">Start a Conversation</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]"><div class="flex flex-col w-full text-on-surface antialiased">
+<!-- ========================================================================= -->
+<!-- SECTION 01: HERO (AI THAT WORKS BEYOND THE LAB)                           -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl lg:py-space-xl border-b border-outline-variant bg-surface">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<!-- Top Telemetry Eyebrow -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm border-b border-outline-variant pb-space-sm font-mono-label text-mono-label text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="tracking-widest uppercase">EMBEDDED AI · COMPUTER VISION · INTELLIGENT SENSING · VLMs</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="hidden sm:inline-block">SYS_CLK: 1200MHz // T_DIE: 41.2°C</span>
+<span class="bg-surface-container-high px-space-xs py-0.5 text-on-surface font-bold">LAT 28.6139° N / FIELD DEPLOYABLE</span>
+</div>
+</div>
+<!-- Main Headline + Editorial Copy Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end pt-space-sm">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<h1 class="font-display-hero text-display-hero-mobile lg:text-display-hero text-on-surface tracking-tight">
+            AI That Works <br class="hidden sm:inline"/>
+<span class="text-secondary underline decoration-1 underline-offset-8">Beyond the Lab.</span>
+</h1>
+<div class="flex items-center gap-space-xs font-mono-metric text-headline-md text-on-surface-variant">
+<span class="text-secondary">></span>
+<span class="text-on-surface font-headline-md" id="hero-typing-target">Sense. See. Reason. Act.</span>
+<span class="w-2 h-5 bg-secondary animate-pulse inline-block"></span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Encepto builds modular embedded AI systems that combine computer vision, intelligent sensing, and vision-language models — engineered for real-world deployment.
+          </p>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="px-space-md py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center gap-space-xs" href="#technology">
+<span>Explore Our Technology</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="px-space-md py-space-sm bg-surface-container text-on-surface border border-outline-variant font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest transition-colors" href="#contact">
+              Partner With Encepto
+            </a>
+</div>
+</div>
+</div>
+<!-- HERO VISUAL: Edge-AI Perception HUD Interface -->
+<div class="mt-space-md w-full bg-surface-container-lowest border border-outline-variant p-space-sm lg:p-space-md">
+<!-- HUD Control Bar -->
+<div class="flex flex-wrap items-center justify-between border-b border-outline-variant pb-space-sm gap-space-sm font-mono-label text-mono-label">
+<div class="flex items-center gap-space-md">
+<span class="text-secondary font-bold flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+              NODE_ID: ENC-EDGE-ALPHA-09
+            </span>
+<span class="hidden md:inline text-on-surface-variant">// DUAL-PIPELINE TENSOR FLOW</span>
+<span class="text-on-surface-variant font-normal">MODE: INDUSTRIAL_SURVEILLANCE_V3</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-xs py-0.5 bg-primary text-on-primary font-mono-label text-body-sm transition-colors" id="hud-cam-btn-1">STREAM_01: OPTICAL</button>
+<button class="px-space-xs py-0.5 bg-surface-container text-on-surface-variant hover:text-on-surface font-mono-label text-body-sm transition-colors" id="hud-cam-btn-2">STREAM_02: THERMAL IR</button>
+<button class="px-space-xs py-0.5 bg-surface-container text-on-surface-variant hover:text-on-surface font-mono-label text-body-sm transition-colors" id="hud-cam-btn-3">STREAM_03: DEPTH LIDAR</button>
+</div>
+</div>
+<!-- HUD Primary Viewport & Telemetry Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pt-space-sm">
+<!-- Viewport (Col 8) -->
+<div class="lg:col-span-8 relative bg-surface-container-highest min-h-[380px] flex flex-col justify-between p-space-md overflow-hidden">
+<!-- Background Sensory Raster Blueprint -->
+<div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#1b1c1a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<!-- Simulated Camera Feed Plate -->
+<div class="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+<svg class="w-full h-full text-outline" fill="none" stroke="currentColor" stroke-width="0.5" viewbox="0 0 800 450">
+<circle cx="400" cy="225" r="140" stroke-dasharray="4 4"></circle>
+<circle cx="400" cy="225" r="80"></circle>
+<line stroke-dasharray="2 2" x1="200" x2="600" y1="225" y2="225"></line>
+<line stroke-dasharray="2 2" x1="400" x2="400" y1="50" y2="400"></line>
+<path d="M 380 205 L 380 190 L 420 190 L 420 205"></path>
+<path d="M 380 245 L 380 260 L 420 260 L 420 245"></path>
+</svg>
+</div>
+<!-- Vector HUD Reticle Overlay Top -->
+<div class="relative z-10 flex items-start justify-between font-mono-label text-body-sm">
+<div class="bg-surface/90 border border-outline-variant px-space-sm py-space-xs backdrop-blur-sm flex flex-col gap-0.5">
+<span class="text-secondary font-bold">FRAME: #849,204</span>
+<span class="text-on-surface-variant">FPS: <span class="text-on-surface font-bold" id="telemetry-fps">42.4</span> | EXP: 1/400s | AGC: 1.2x</span>
+<span class="text-on-surface-variant">BANDWIDTH: ZERO-CLOUD (LOCAL BUS)</span>
+</div>
+<div class="bg-surface/90 border border-outline-variant px-space-sm py-space-xs backdrop-blur-sm text-right">
+<span class="text-error font-bold flex items-center justify-end gap-1">
+<span class="w-1.5 h-1.5 bg-error inline-block animate-ping"></span>
+                  LIVE INFERENCE ENGINE
+                </span>
+<span class="text-on-surface-variant font-mono-label">INT8 TENSOR QUANT</span>
+</div>
+</div>
+<!-- Dynamic Bounding Boxes in Perception HUD -->
+<div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-space-md py-space-md">
+<!-- Bounding Box 1 -->
+<div class="border border-secondary bg-secondary/5 p-space-xs relative max-w-xs transition-all hover:bg-secondary/10">
+<div class="absolute -top-3 left-0 bg-secondary text-on-secondary px-1 text-[9px] font-mono-label tracking-wider uppercase">
+                  OBSTACLE_01 [0.94 CONF]
+                </div>
+<div class="flex justify-between items-center text-body-sm font-mono-label text-on-surface">
+<span>CLASS: STRUCTURAL_FRACTURE</span>
+<span class="text-secondary">Δx: +0.12mm</span>
+</div>
+<div class="text-[10px] text-on-surface-variant font-mono-label mt-1 flex justify-between">
+<span>VECTOR: [-12.4, 0.0, 4.2]</span>
+<span>TRACK_ID: #4092</span>
+</div>
+</div>
+<!-- Bounding Box 2 -->
+<div class="border border-outline bg-surface/70 p-space-xs relative max-w-xs sm:ml-auto">
+<div class="absolute -top-3 left-0 bg-primary text-on-primary px-1 text-[9px] font-mono-label tracking-wider uppercase">
+                  THERMAL_SIGNATURE [42.4°C]
+                </div>
+<div class="flex justify-between items-center text-body-sm font-mono-label text-on-surface">
+<span>STATUS: ANOMALOUS_HEAT</span>
+<span class="text-error">ΔT: +7.8°C</span>
+</div>
+<div class="text-[10px] text-on-surface-variant font-mono-label mt-1 flex justify-between">
+<span>REGION: POWER_INVERTER</span>
+<span>RISK: NOMINAL</span>
+</div>
+</div>
+</div>
+<!-- Viewport Bottom Status Bar -->
+<div class="relative z-10 flex flex-wrap items-end justify-between font-mono-label text-body-sm pt-space-md border-t border-outline-variant/60">
+<div class="flex items-center gap-space-md">
+<span class="text-on-surface">INFERENCE LATENCY: <strong class="text-secondary font-mono-metric text-body-md" id="telemetry-latency">11.8ms</strong></span>
+<span class="hidden sm:inline text-on-surface-variant">SRAM: 4.8MB / 8.0MB</span>
+</div>
+<div class="text-on-surface-variant text-[10px]">
+                CALIBRATION_HASH: 0x9AF831B · SENSOR_HEALTH: NOMINAL
+              </div>
+</div>
+</div>
+<!-- Telemetry Inspector (Col 4) -->
+<div class="lg:col-span-4 flex flex-col justify-between gap-space-sm bg-surface-container p-space-md border border-outline-variant">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-outline-variant pb-space-xs">
+<span class="font-mono-label text-mono-label uppercase text-on-surface font-bold">SYSTEM TELEMETRY</span>
+<span class="font-mono-label text-body-sm text-secondary">REAL-TIME BUS</span>
+</div>
+<!-- Metrics Matrix -->
+<div class="grid grid-cols-2 gap-space-xs py-space-xs">
+<div class="bg-surface-container-lowest p-space-xs border border-outline-variant">
+<span class="font-mono-label text-[10px] text-on-surface-variant block uppercase">Edge Node Status</span>
+<span class="font-mono-metric text-body-lg text-on-surface font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+                    ONLINE
+                  </span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs border border-outline-variant">
+<span class="font-mono-label text-[10px] text-on-surface-variant block uppercase">Sensor Array</span>
+<span class="font-mono-metric text-body-lg text-on-surface font-bold">04 / 04 LOCKED</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs border border-outline-variant">
+<span class="font-mono-label text-[10px] text-on-surface-variant block uppercase">Tensor Engine</span>
+<span class="font-mono-metric text-body-lg text-on-surface font-bold">LOCAL NPU</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs border border-outline-variant">
+<span class="font-mono-label text-[10px] text-on-surface-variant block uppercase">Operating Env</span>
+<span class="font-mono-metric text-body-lg text-on-surface font-bold">FIELD MODE</span>
+</div>
+</div>
+<!-- Micro Raw Logs -->
+<div class="flex flex-col gap-1 font-mono-label text-[10px] text-on-surface-variant pt-space-xs border-t border-outline-variant">
+<span class="text-on-surface font-bold uppercase tracking-wider">Edge Event Stream</span>
+<div class="flex items-center justify-between font-mono-label">
+<span>[14:02:18.401] IMU_SYNC_OK</span>
+<span class="text-on-surface">Jitter: 0.02ms</span>
+</div>
+<div class="flex items-center justify-between font-mono-label">
+<span>[14:02:18.412] OPT_INFER_COMPLETE</span>
+<span class="text-secondary">BBox: #4092</span>
+</div>
+<div class="flex items-center justify-between font-mono-label">
+<span>[14:02:18.423] VLM_CONTEXT_DISPATCH</span>
+<span class="text-on-surface">Token: 18ms</span>
+</div>
+<div class="flex items-center justify-between font-mono-label">
+<span>[14:02:18.435] WATCHDOG_TICK</span>
+<span class="text-on-surface-variant">Ack: 0x00</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-outline-variant flex items-center justify-between font-mono-label text-body-sm">
+<span class="text-on-surface-variant uppercase">Power Draw</span>
+<span class="text-on-surface font-bold font-mono-metric">3.4W (SUB-5W NOMINAL)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 02: THE PROBLEM (REALITY OF THE FIELD)                            -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">01 / THE PROBLEM</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+            AI can work in a lab. The field is different.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Controlled environments make AI look simple. Real deployment introduces dust, heat, unstable power, zero connectivity, silicon BOM cost realities, and unattended operation.
+        </p>
+</div>
+<!-- 6 Physical Constraints Asymmetric Technical Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Constraint 01 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">LIMIT_01</span>
+<span>MIL-STD // DUST</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">01. Atmospheric Dust</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Particulate contamination, optical occlusion, lens fouling, and abrasive physical wear degrade conventional camera pipelines within hours of unmanaged field exposure.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[11px] text-on-surface-variant">
+            SPEC: IP67 ENCLOSURE + COMPENSATING DENOISING
+          </div>
+</div>
+<!-- Constraint 02 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">LIMIT_02</span>
+<span>THERMAL // 55°C</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">02. Extreme Ambient Heat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Sustained 55°C outdoor thermal peaks trigger active processor throttling on consumer silicon. Encepto designs for passive conduction without moving fans that fail in grit.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[11px] text-on-surface-variant">
+            SPEC: INDUSTRIAL SILICON RATED (-40°C TO +85°C)
+          </div>
+</div>
+<!-- Constraint 03 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">LIMIT_03</span>
+<span>ELECTRICAL // BROWNOUT</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">03. Unstable Power Grid</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Volatile line voltages, frequent grid brownouts, and intermittent solar charging cycles require deterministic power architectures with safe brownout journal commits.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[11px] text-on-surface-variant">
+            SPEC: ULTRA-WIDE 9-36V DC STEP-DOWN REGULATION
+          </div>
+</div>
+<!-- Constraint 04 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">LIMIT_04</span>
+<span>TELCO // AIR-GAPPED</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">04. Unreliable Connectivity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Edge AI that relies on continuous API backhauls collapses in deep rural or metal-shielded industrial sites. All perception and reasoning must execute autonomously on-silicon.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[11px] text-on-surface-variant">
+            SPEC: 100% AIR-GAPPED LOCAL DECISION LOOPS
+          </div>
+</div>
+<!-- Constraint 05 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">LIMIT_05</span>
+<span>COMMERCIAL // BOM</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">05. Commercial Silicon BOM</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Deploying $5,000 server GPUs per camera is economically non-viable at institutional scale. Encepto develops for sub-$100 edge SoCs through INT4/INT8 quantization kernels.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[11px] text-on-surface-variant">
+            SPEC: SUB-WATT ARCHITECTURE COMPATIBLE
+          </div>
+</div>
+<!-- Constraint 06 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">LIMIT_06</span>
+<span>OPS // UNATTENDED</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">06. Remote Environments</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              No field technicians exist to reboot a frozen Linux daemon 200 kilometers from headquarters. Dual-redundant watchdogs and fail-safe recovery logic are mandatory invariants.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[11px] text-on-surface-variant">
+            SPEC: DUAL HARDWARE WATCHDOG TIMERS
+          </div>
+</div>
+</div>
+<!-- Closing Engineering Banner -->
+<div class="w-full bg-primary text-on-primary p-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-mono-label">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 bg-secondary inline-block"></span>
+<span class="text-body-lg font-bold">ENCEPTO CORE PRINCIPLE:</span>
+<span class="text-body-md text-outline-variant">We engineer for the field from day one.</span>
+</div>
+<span class="text-secondary text-body-sm font-bold uppercase tracking-wider">HARDENED_SYSTEMS // READY</span>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 03: WHAT WE BUILD (FOUR LAYERS OF INTELLIGENCE)                   -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface" id="technology">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">02 / WHAT WE BUILD</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+          Four layers of intelligent systems.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Modular, hardware-agnostic, and co-designed across the silicon-to-software stack to achieve deterministic intelligence in resource-constrained hardware.
+        </p>
+</div>
+<!-- 4 Connected Modular Cards with Buslines -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md relative">
+<!-- Card 1: Embedded AI -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative group hover:border-secondary transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="text-secondary font-bold">01 // COMPUTE</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">memory</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Embedded AI</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Custom local compute kernels, NPU INT8/FP4 quantization, bare-metal microcontroller inference runtime, and edge tensor memory packing without operating system bloat.
+            </p>
+</div>
+<div class="pt-space-md border-t border-outline-variant/60 font-mono-label text-[10px] text-on-surface-variant flex flex-col gap-1">
+<span class="text-on-surface font-bold">TECH SPEC:</span>
+<span>INT8 Quantization Engine</span>
+<span>Zero-Copy Direct Tensor DMA</span>
+</div>
+</div>
+<!-- Card 2: Computer Vision -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative group hover:border-secondary transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="text-secondary font-bold">02 // PERCEPTION</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">visibility</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Computer Vision</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Real-time optical flow estimation, extreme low-light spatial enhancement, domain-specific lightweight object detection, and robust sub-millisecond edge visual tracking.
+            </p>
+</div>
+<div class="pt-space-md border-t border-outline-variant/60 font-mono-label text-[10px] text-on-surface-variant flex flex-col gap-1">
+<span class="text-on-surface font-bold">TECH SPEC:</span>
+<span>42+ FPS Real-Time Multi-Object</span>
+<span>Exposure-Compensated Flow</span>
+</div>
+</div>
+<!-- Card 3: Intelligent Sensing -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative group hover:border-secondary transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="text-secondary font-bold">03 // TELEMETRY</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">sensors</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Intelligent Sensing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Multi-modal sensor fusion binding 6-axis IMUs, thermopile arrays, spatial LiDAR, acoustic vibration microphones, and ambient barometric sensors into a unified state space.
+            </p>
+</div>
+<div class="pt-space-md border-t border-outline-variant/60 font-mono-label text-[10px] text-on-surface-variant flex flex-col gap-1">
+<span class="text-on-surface font-bold">TECH SPEC:</span>
+<span>Extended Kalman Filtering (EKF)</span>
+<span>Microsecond Jitter Synchronization</span>
+</div>
+</div>
+<!-- Card 4: Vision-Language Models -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative group hover:border-secondary transition-colors">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="text-secondary font-bold">04 // REASONING</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vision-Language</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Compact multi-modal foundation models compressed for on-device execution. Translates visual scene embeddings into structured natural-language telemetry and autonomous control triggers.
+            </p>
+</div>
+<div class="pt-space-md border-t border-outline-variant/60 font-mono-label text-[10px] text-on-surface-variant flex flex-col gap-1">
+<span class="text-on-surface font-bold">TECH SPEC:</span>
+<span>Edge Context Window Quantization</span>
+<span>Autonomous State Synthesis</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 04: SYSTEM ARCHITECTURE (FLAGSHIP INTERACTIVE SCHEMATIC)          -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">03 / SYSTEM ARCHITECTURE</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+            From sensing to actionable intelligence.
+          </h2>
+</div>
+<div class="flex items-center gap-space-md font-mono-label text-body-sm text-on-surface-variant">
+<span class="text-secondary font-bold">< 12ms TOTAL SYSTEM LATENCY</span>
+<span>// ZERO-CLOUD DEPENDENT</span>
+</div>
+</div>
+<!-- Horizontal Architecture Pipeline Flow -->
+<div class="w-full overflow-x-auto pb-space-sm">
+<div class="min-w-[980px] grid grid-cols-6 gap-space-xs relative">
+<!-- Bus Connecting Line Indicator -->
+<div class="col-span-6 h-0.5 bg-outline-variant my-space-xs relative">
+<div class="absolute left-0 top-0 h-0.5 bg-secondary w-full animate-pulse"></div>
+</div>
+<!-- Step 1: Cameras / Sensors -->
+<div class="cursor-pointer bg-surface border-2 border-secondary p-space-sm flex flex-col justify-between min-h-[220px] transition-all" id="arch-step-1" onclick="selectArchStep(1)">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-secondary font-bold">NODE // 01</span>
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold uppercase">CAMERAS & SENSORS</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Optical raw CMOS, high-temp thermopiles, 6-DoF IMU, acoustic microphones.</p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+              INPUT: RAW ANALOG/MIPI
+            </div>
+</div>
+<!-- Step 2: Computer Vision -->
+<div class="cursor-pointer bg-surface border border-outline-variant p-space-sm flex flex-col justify-between min-h-[220px] hover:border-on-surface transition-all" id="arch-step-2" onclick="selectArchStep(2)">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">NODE // 02</span>
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold uppercase">COMPUTER VISION</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Spatial feature extraction, de-noising filters, ROI extraction & optical flow.</p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+              RATE: 60 FPS INTAKE
+            </div>
+</div>
+<!-- Step 3: Edge Embedded Compute -->
+<div class="cursor-pointer bg-surface border border-outline-variant p-space-sm flex flex-col justify-between min-h-[220px] hover:border-on-surface transition-all" id="arch-step-3" onclick="selectArchStep(3)">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">NODE // 03</span>
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold uppercase">EMBEDDED COMPUTE</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Sub-5W tensor hardware, zero-copy memory registers, direct bus arbitration.</p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+              POWER: < 4.2 WATTS
+            </div>
+</div>
+<!-- Step 4: AI Models -->
+<div class="cursor-pointer bg-surface border border-outline-variant p-space-sm flex flex-col justify-between min-h-[220px] hover:border-on-surface transition-all" id="arch-step-4" onclick="selectArchStep(4)">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">NODE // 04</span>
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold uppercase">AI MODELS</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Quantized INT8 CNNs/Transformers tailored for defect & motion classification.</p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+              WEIGHTS: COMPACT INT8
+            </div>
+</div>
+<!-- Step 5: VLM Reasoning -->
+<div class="cursor-pointer bg-surface border border-outline-variant p-space-sm flex flex-col justify-between min-h-[220px] hover:border-on-surface transition-all" id="arch-step-5" onclick="selectArchStep(5)">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">NODE // 05</span>
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold uppercase">VLM REASONING</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Context synthesis across multi-modal tensors into human-inspectable state vectors.</p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+              LOGIC: EMBEDDED CONTEXT
+            </div>
+</div>
+<!-- Step 6: Actionable Intelligence -->
+<div class="cursor-pointer bg-surface border border-outline-variant p-space-sm flex flex-col justify-between min-h-[220px] hover:border-on-surface transition-all" id="arch-step-6" onclick="selectArchStep(6)">
+<div class="flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">NODE // 06</span>
+<h4 class="font-headline-md text-body-lg text-on-surface font-bold uppercase">ACTION & DISPATCH</h4>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Deterministic CAN bus telemetry, relay triggering, automated shutoff trip signals.</p>
+</div>
+<div class="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+              DISPATCH: ZERO BUFFER
+            </div>
+</div>
+</div>
+</div>
+<!-- Dynamic Architecture Inspection Card -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md" id="arch-detail-panel">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center font-mono-metric text-headline-md">01</div>
+<div class="flex flex-col">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold">CURRENT NODE INSPECTION</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold" id="arch-detail-title">CAMERAS & SENSORY ARRAYS</span>
+<span class="font-body-md text-body-md text-on-surface-variant" id="arch-detail-desc">Multi-spectral optical modules coupled with dual thermal radiometric sensors and vibration microphones. Direct DMA bus transfer with zero OS buffering.</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm font-mono-label text-body-sm">
+<span class="bg-surface-container px-space-sm py-1 border border-outline-variant">BUS PROTOCOL: MIPI CSI-2</span>
+<span class="bg-surface-container px-space-sm py-1 border border-outline-variant">LATENCY: < 1.4ms</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 05: BUILT FOR INDIAN REALITY (FIELD ENGINEERING)                  -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">04 / FIELD ENGINEERING</span>
+<h2 class="font-display-hero text-headline-lg-mobile lg:text-display-hero text-on-surface">
+            Built for India. Ready for the world.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          India is not simply a deployment market for Encepto. Its environmental and infrastructure realities are core engineering constraints that shape the system from the beginning.
+        </p>
+</div>
+<!-- 4 Real-World Environmental Grid Modules -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Module 1: Agriculture -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary font-bold">SECTOR // AGRI</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Agriculture</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Arid crop field inspection enduring dense dust storms, variable monsoon downpours, and erratic 3-phase agricultural power grids.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+            CONSTRAINTS: HIGH SILICATE DUST + VOLTAGE SAG
+          </div>
+</div>
+<!-- Module 2: Industrial -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary font-bold">SECTOR // IND</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Heavy Industry</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Forge and casting floors plagued with intense electromagnetic noise, violent ambient vibration harmonics, and ambient radiant heat.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+            CONSTRAINTS: 55°C HEAT + 10G MECHANICAL VIBRATION
+          </div>
+</div>
+<!-- Module 3: Infrastructure -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary font-bold">SECTOR // INFRA</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Infrastructure</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Highways, bridge spans, and regional railway track beds subjected to relentless monsoon humidity, lightning transients, and zero cellular signal.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+            CONSTRAINTS: 99% RH HUMIDITY + REMOTE MILES
+          </div>
+</div>
+<!-- Module 4: Energy -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary font-bold">SECTOR // ENERGY</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Energy & Solar</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Off-grid solar installations and high-voltage transmission corridors requiring autonomous thermal hotspot detection without grid uplink.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
+            CONSTRAINTS: 24/7 SOLAR CYCLING + ZERO BANDWIDTH
+          </div>
+</div>
+</div>
+<!-- Monospace Telemetry Matrix -->
+<div class="bg-surface-container-high border border-outline-variant p-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm font-mono-label text-mono-label border-b border-outline-variant pb-space-xs">
+<span class="text-on-surface font-bold uppercase">PHYSICAL CONSTRAINT ENGINEERING MATRIX</span>
+<span class="text-secondary">SYSTEM LEVEL: HARDENED</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm pt-space-sm font-mono-label">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">DUST</span>
+<span class="text-body-md text-on-surface font-bold">IP67 SEALED</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">HEAT</span>
+<span class="text-body-md text-on-surface font-bold">+55°C PASSIVE</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">POWER</span>
+<span class="text-body-md text-on-surface font-bold">9-36V ISOLATED</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">CONNECTIVITY</span>
+<span class="text-body-md text-on-surface font-bold">AIR-GAPPED 100%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">COST</span>
+<span class="text-body-md text-on-surface font-bold">SUB-$100 BOM</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">REMOTE</span>
+<span class="text-body-md text-on-surface font-bold">FAIL-SAFE DUAL BOOT</span>
+</div>
+</div>
+</div>
+<!-- Editorial Closing -->
+<div class="font-body-lg text-body-lg text-on-surface font-medium border-l-2 border-secondary pl-space-md">
+        "What survives demanding conditions here should be ready for deployment anywhere."
+      </div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 06: APPLICATION DOMAINS (HIGH-FIDELITY SHOWCASE)                  -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low" id="applications">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">05 / APPLICATION DOMAINS</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+          Technology built across real-world domains.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Engineering implementations targeting fundamental structural bottlenecks, with measured specs and clean telemetry data.
+        </p>
+</div>
+<!-- 4 Showcase Panels -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Domain 1: Agriculture -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="text-secondary font-bold">DOMAIN // AGRI-01</span>
+<span>CANOPY TELEMETRY</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Precision Agronomy & Crop Sensing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Edge camera nodes mounted on tractors or field poles classifying fungal blight, micro-nutrient deficiencies, and soil moisture boundaries locally without streaming multi-gigabyte video back to cloud servers.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant grid grid-cols-3 gap-space-xs font-mono-label text-[11px]">
+<div>
+<span class="text-on-surface-variant block">MODEL</span>
+<span class="text-on-surface font-bold">ENC-AG-YOLO</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">LATENCY</span>
+<span class="text-on-surface font-bold">14.2ms</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">POWER</span>
+<span class="text-on-surface font-bold">2.8W</span>
+</div>
+</div>
+</div>
+<!-- Domain 2: Industrial Manufacturing -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="text-secondary font-bold">DOMAIN // IND-02</span>
+<span>HIGH-SPEED QA</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Industrial High-Speed Anomaly Detection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Sub-millimeter weld integrity verification and stamping defect isolation at 2,400 parts-per-minute. Fuses high-speed optical vision with 3-axis accelerometer readings to detect mechanical bearing degradation.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant grid grid-cols-3 gap-space-xs font-mono-label text-[11px]">
+<div>
+<span class="text-on-surface-variant block">THROUGHPUT</span>
+<span class="text-on-surface font-bold">40 PPM</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">ACCURACY</span>
+<span class="text-on-surface font-bold">99.7% F1</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">INTERFACE</span>
+<span class="text-on-surface font-bold">OPC-UA / CAN</span>
+</div>
+</div>
+</div>
+<!-- Domain 3: Infrastructure -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="text-secondary font-bold">DOMAIN // INFRA-03</span>
+<span>CIVIL HEALTH</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Structural & Railway Defect Monitoring</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Solar-powered vibration and strain perception units deployed on girder bridges and rail corridors. Runs continuous acoustic frequency transform kernels to detect sub-surface rail fractures prior to catastrophic failure.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant grid grid-cols-3 gap-space-xs font-mono-label text-[11px]">
+<div>
+<span class="text-on-surface-variant block">SAMPLING</span>
+<span class="text-on-surface font-bold">20 kHz ACOUSTIC</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">UPTIME</span>
+<span class="text-on-surface font-bold">99.98%</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">ALERT TRIPPING</span>
+<span class="text-on-surface font-bold">< 50ms</span>
+</div>
+</div>
+</div>
+<!-- Domain 4: Energy -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+<span class="text-secondary font-bold">DOMAIN // ENG-04</span>
+<span>THERMAL RUNAWAY</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Substation & Grid Micro-Monitoring</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Infrared thermography coupled with spatial visual tracking on distribution transformers. Predicts insulation breakdown and localized arcing events under high-ambient solar loading.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant grid grid-cols-3 gap-space-xs font-mono-label text-[11px]">
+<div>
+<span class="text-on-surface-variant block">THERMAL RES</span>
+<span class="text-on-surface font-bold">0.05°C NETD</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">SURGE SHIELD</span>
+<span class="text-on-surface font-bold">6kV ISOLATION</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">RANGE</span>
+<span class="text-on-surface font-bold">50 METERS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 07: R&D PROCESS (INTERACTIVE 6-STAGE TIMELINE)                    -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">06 / R&D PROCESS</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+          From research question to field deployment.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          A disciplined engineering progression guaranteeing models perform in silicon rather than merely scoring well in academic benchmark notebooks.
+        </p>
+</div>
+<!-- 6-Stage Timeline Stepper -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-space-xs border-y border-outline-variant py-space-sm">
+<!-- Step 1 -->
+<div class="cursor-pointer p-space-sm bg-surface-container border-t-2 border-secondary flex flex-col justify-between min-h-[180px] transition-all" id="rd-card-1" onclick="setRdStep(1)">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-secondary font-bold">STAGE 01</span>
+<span class="font-headline-md text-body-md text-on-surface font-bold uppercase">IDENTIFY</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Define physical constraints, silicon BOM budgets, thermal limits, and sensor optics.</p>
+</div>
+<span class="font-mono-label text-[10px] text-on-surface-variant">PHASE: DEFINITION</span>
+</div>
+<!-- Step 2 -->
+<div class="cursor-pointer p-space-sm bg-surface border-t-2 border-transparent hover:border-outline flex flex-col justify-between min-h-[180px] transition-all" id="rd-card-2" onclick="setRdStep(2)">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">STAGE 02</span>
+<span class="font-headline-md text-body-md text-on-surface font-bold uppercase">RESEARCH</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Benchmark transformer vs CNN topologies, simulate loss functions, explore domain pruning.</p>
+</div>
+<span class="font-mono-label text-[10px] text-on-surface-variant">PHASE: ALGORITHMIC</span>
+</div>
+<!-- Step 3 -->
+<div class="cursor-pointer p-space-sm bg-surface border-t-2 border-transparent hover:border-outline flex flex-col justify-between min-h-[180px] transition-all" id="rd-card-3" onclick="setRdStep(3)">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">STAGE 03</span>
+<span class="font-headline-md text-body-md text-on-surface font-bold uppercase">PROTOTYPE</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Hardware-in-the-loop bring-up, silicon quantisation mapping, memory layout tuning.</p>
+</div>
+<span class="font-mono-label text-[10px] text-on-surface-variant">PHASE: HARDWARE</span>
+</div>
+<!-- Step 4 -->
+<div class="cursor-pointer p-space-sm bg-surface border-t-2 border-transparent hover:border-outline flex flex-col justify-between min-h-[180px] transition-all" id="rd-card-4" onclick="setRdStep(4)">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">STAGE 04</span>
+<span class="font-headline-md text-body-md text-on-surface font-bold uppercase">VALIDATE</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Thermal chamber stress testing, brownout vibration cycling, dust box exposure.</p>
+</div>
+<span class="font-mono-label text-[10px] text-on-surface-variant">PHASE: HARDENING</span>
+</div>
+<!-- Step 5 -->
+<div class="cursor-pointer p-space-sm bg-surface border-t-2 border-transparent hover:border-outline flex flex-col justify-between min-h-[180px] transition-all" id="rd-card-5" onclick="setRdStep(5)">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">STAGE 05</span>
+<span class="font-headline-md text-body-md text-on-surface font-bold uppercase">DEPLOY</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Edge fleet flashing, zero-downtime boots, optical focus calibration on physical rigs.</p>
+</div>
+<span class="font-mono-label text-[10px] text-on-surface-variant">PHASE: COMMENCEMENT</span>
+</div>
+<!-- Step 6 -->
+<div class="cursor-pointer p-space-sm bg-surface border-t-2 border-transparent hover:border-outline flex flex-col justify-between min-h-[180px] transition-all" id="rd-card-6" onclick="setRdStep(6)">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant font-bold">STAGE 06</span>
+<span class="font-headline-md text-body-md text-on-surface font-bold uppercase">EVOLVE</span>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Edge telemetry log aggregation, continuous offline fine-tuning, model artifact versioning.</p>
+</div>
+<span class="font-mono-label text-[10px] text-on-surface-variant">PHASE: ITERATION</span>
+</div>
+</div>
+<!-- Stage Detail Callout -->
+<div class="bg-surface-container p-space-md border border-outline-variant flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" id="rd-detail-box">
+<div class="flex flex-col gap-1">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold">STAGE METHODOLOGY FOCUS</span>
+<span class="font-headline-md text-headline-md text-on-surface" id="rd-stage-title">01: IDENTIFY & CHARACTERIZE</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl" id="rd-stage-desc">
+            We begin with zero assumptions about connectivity or infinite power. Every project defines maximum peak wattage, ambient dust thresholds, and target device cost bounds before writing a line of code.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs font-mono-label text-body-sm bg-surface-container-high px-space-md py-space-xs border border-outline-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>GATE CRITERION: SENSOR PRD LOCKED</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 08: REUSABLE IP (DARKER CONTRASTING AESTHETIC MODULE)             -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-primary-container text-on-primary">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-on-primary-container/30 pb-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary-container uppercase font-bold tracking-widest">07 / REUSABLE INTELLIGENCE</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-primary">
+            Every deployment builds the next system.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-primary-container max-w-md">
+          Encepto operates as a deep-tech IP engine rather than a traditional professional services bureau. Every deployment reinforces our persistent modular substrate.
+        </p>
+</div>
+<!-- Compounding Knowledge Loop Diagram -->
+<div class="bg-surface-container-highest/10 border border-on-primary-container/20 p-space-md">
+<div class="font-mono-label text-mono-label text-secondary-container mb-space-md uppercase font-bold tracking-wider">
+          COMPOUNDING IP ARCHITECTURE LOOP // v4.2
+        </div>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-space-sm items-center text-center font-mono-label">
+<div class="p-space-xs bg-surface-container-highest/15 border border-on-primary-container/30">
+<span class="text-[10px] text-on-primary-container block">STEP 01</span>
+<span class="text-body-sm text-on-primary font-bold">FIELD PROBLEM</span>
+</div>
+<div class="p-space-xs bg-surface-container-highest/15 border border-on-primary-container/30">
+<span class="text-[10px] text-on-primary-container block">STEP 02</span>
+<span class="text-body-sm text-on-primary font-bold">R&D RIGOR</span>
+</div>
+<div class="p-space-xs bg-surface-container-highest/15 border border-on-primary-container/30">
+<span class="text-[10px] text-on-primary-container block">STEP 03</span>
+<span class="text-body-sm text-on-primary font-bold">DEPLOYMENT</span>
+</div>
+<div class="p-space-xs bg-surface-container-highest/15 border border-on-primary-container/30">
+<span class="text-[10px] text-on-primary-container block">STEP 04</span>
+<span class="text-body-sm text-on-primary font-bold">TELEMETRY</span>
+</div>
+<div class="p-space-xs bg-secondary-container/20 border border-secondary-container text-secondary-container">
+<span class="text-[10px] block">STEP 05</span>
+<span class="text-body-sm font-bold">REUSABLE IP</span>
+</div>
+<div class="p-space-xs bg-surface-container-highest/15 border border-on-primary-container/30">
+<span class="text-[10px] text-on-primary-container block">STEP 06</span>
+<span class="text-body-sm text-on-primary font-bold">NEXT SYSTEM</span>
+</div>
+</div>
+</div>
+<!-- 5 Visualized Engineering IP Assets -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-sm">
+<div class="border border-on-primary-container/30 p-space-sm bg-surface-container-highest/5">
+<span class="font-mono-label text-[10px] text-secondary-container uppercase">CORE ASSET 01</span>
+<h4 class="font-headline-md text-body-lg text-on-primary mt-1 font-bold">Knowledge</h4>
+<p class="font-body-sm text-[11px] text-on-primary-container mt-1">Deep failure mode taxonomies under non-ideal industrial conditions.</p>
+</div>
+<div class="border border-on-primary-container/30 p-space-sm bg-surface-container-highest/5">
+<span class="font-mono-label text-[10px] text-secondary-container uppercase">CORE ASSET 02</span>
+<h4 class="font-headline-md text-body-lg text-on-primary mt-1 font-bold">Models</h4>
+<p class="font-body-sm text-[11px] text-on-primary-container mt-1">Custom lightweight neural blocks pre-trained on high-noise real-world imagery.</p>
+</div>
+<div class="border border-on-primary-container/30 p-space-sm bg-surface-container-highest/5">
+<span class="font-mono-label text-[10px] text-secondary-container uppercase">CORE ASSET 03</span>
+<h4 class="font-headline-md text-body-lg text-on-primary mt-1 font-bold">Architecture</h4>
+<p class="font-body-sm text-[11px] text-on-primary-container mt-1">Direct memory register patterns that circumvent operating system latency.</p>
+</div>
+<div class="border border-on-primary-container/30 p-space-sm bg-surface-container-highest/5">
+<span class="font-mono-label text-[10px] text-secondary-container uppercase">CORE ASSET 04</span>
+<h4 class="font-headline-md text-body-lg text-on-primary mt-1 font-bold">Design Patterns</h4>
+<p class="font-body-sm text-[11px] text-on-primary-container mt-1">Brownout-safe state commit workflows and autonomous hardware watchdog trees.</p>
+</div>
+<div class="border border-on-primary-container/30 p-space-sm bg-surface-container-highest/5">
+<span class="font-mono-label text-[10px] text-secondary-container uppercase">CORE ASSET 05</span>
+<h4 class="font-headline-md text-body-lg text-on-primary mt-1 font-bold">Patented IP</h4>
+<p class="font-body-sm text-[11px] text-on-primary-container mt-1">Novel multi-modal quantization algorithms and sensor fusion state topologies.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 09: CASE STUDIES (CMS-READY BLUEPRINT DESIGN)                     -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface" id="case-studies">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">08 / CASE STUDIES</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+            Where research meets deployment.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Structured case framework displaying operational deployment parameters. Selected field validation results appear as telemetry milestones publish.
+        </p>
+</div>
+<!-- CMS-Ready Placeholder Cards with Blueprint Architecture -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- CMS Card 1 -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-[10px] text-on-surface-variant">
+<span class="text-secondary font-bold">PILOT // 2026.Q1</span>
+<span>STATE: VALIDATION_RUN</span>
+</div>
+<h3 class="font-headline-md text-body-lg text-on-surface font-bold">Arid Agriculture Crop Blight Telemetry</h3>
+<div class="flex flex-col gap-1 font-mono-label text-[11px] pt-space-xs">
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Challenge:</span>
+<span class="text-on-surface font-medium">Silicate Dust & Zero Cellular</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Environment:</span>
+<span class="text-on-surface font-medium">Western Rajasthan (48°C)</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Technology:</span>
+<span class="text-on-surface font-medium">Edge NPU + Compact VLM</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Outcome:</span>
+<span class="text-secondary font-bold">Telemetry Publishing Soon</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs font-mono-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+            DOSSIER PENDING EMBARGO LIFT
+          </div>
+</div>
+<!-- CMS Card 2 -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-[10px] text-on-surface-variant">
+<span class="text-secondary font-bold">PILOT // 2026.Q2</span>
+<span>STATE: FIELD_DEPLOYED</span>
+</div>
+<h3 class="font-headline-md text-body-lg text-on-surface font-bold">High-Vibration Industrial Press Line</h3>
+<div class="flex flex-col gap-1 font-mono-label text-[11px] pt-space-xs">
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Challenge:</span>
+<span class="text-on-surface font-medium">10G Harmonic Shock</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Environment:</span>
+<span class="text-on-surface font-medium">Automotive Heavy Stamping</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Technology:</span>
+<span class="text-on-surface font-medium">Optical + EKF Accelerometer</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Outcome:</span>
+<span class="text-secondary font-bold">Telemetry Publishing Soon</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs font-mono-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+            DOSSIER PENDING EMBARGO LIFT
+          </div>
+</div>
+<!-- CMS Card 3 -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-label text-[10px] text-on-surface-variant">
+<span class="text-secondary font-bold">PILOT // 2026.Q3</span>
+<span>STATE: SILICON_BRINGUP</span>
+</div>
+<h3 class="font-headline-md text-body-lg text-on-surface font-bold">Off-Grid Solar Substation Thermal Runaway</h3>
+<div class="flex flex-col gap-1 font-mono-label text-[11px] pt-space-xs">
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Challenge:</span>
+<span class="text-on-surface font-medium">Unstable Solar Cycling</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Environment:</span>
+<span class="text-on-surface font-medium">Desert Photovoltaic Farm</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Technology:</span>
+<span class="text-on-surface font-medium">LWIR Radiometric Thermopiles</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/60 py-1">
+<span class="text-on-surface-variant">Outcome:</span>
+<span class="text-secondary font-bold">Telemetry Publishing Soon</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs font-mono-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+            DOSSIER PENDING EMBARGO LIFT
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 10: RESEARCH & INSIGHTS (TECHNICAL JOURNAL LAYOUT)                -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low" id="research">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">09 / RESEARCH & INSIGHTS</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
+            Thinking beyond the model.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Open technical notes, preprints, and engineering investigations exploring hardware constraints, quantization theory, and ambient physical sensing.
+        </p>
+</div>
+<!-- 4 Technical Journal Articles -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Note 1 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="bg-surface-container px-space-xs py-0.5 text-on-surface font-bold uppercase">EDGE AI</span>
+<span class="text-secondary font-bold">RESEARCH NOTE // 01</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-space-xs">
+              Quantization Strategies for Sub-5W Visual Transformers
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Investigating mixed INT4/INT8 precision bounds in self-attention matrices on ARM Cortex and RISC-V edge vector registers without catastrophic accuracy degradation.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex items-center justify-between font-mono-label text-[11px]">
+<span class="text-on-surface-variant">ENC-RN-2026-08</span>
+<span class="text-on-surface font-bold uppercase">Preprint Forthcoming</span>
+</div>
+</div>
+<!-- Note 2 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="bg-surface-container px-space-xs py-0.5 text-on-surface font-bold uppercase">COMPUTER VISION</span>
+<span class="text-secondary font-bold">RESEARCH NOTE // 02</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-space-xs">
+              Mitigating Atmospheric Particle Occlusion in Low-Cost Optics
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Algorithmic optical restoration using spatio-temporal coherence kernels to cancel silicate dust scattering in un-shielded agricultural camera installations.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex items-center justify-between font-mono-label text-[11px]">
+<span class="text-on-surface-variant">ENC-RN-2026-09</span>
+<span class="text-on-surface font-bold uppercase">Preprint Forthcoming</span>
+</div>
+</div>
+<!-- Note 3 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="bg-surface-container px-space-xs py-0.5 text-on-surface font-bold uppercase">EMBEDDED SYSTEMS</span>
+<span class="text-secondary font-bold">RESEARCH NOTE // 03</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-space-xs">
+              Zero-Downtime Deterministic Firmware Flashing in Remote Nodes
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              A dual-bank flash memory partition scheme enabling atomic fallback during brownout interruptions on solar-powered rural monitoring arrays.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex items-center justify-between font-mono-label text-[11px]">
+<span class="text-on-surface-variant">ENC-RN-2026-10</span>
+<span class="text-on-surface font-bold uppercase">Preprint Forthcoming</span>
+</div>
+</div>
+<!-- Note 4 -->
+<div class="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-mono-label text-body-sm">
+<span class="bg-surface-container px-space-xs py-0.5 text-on-surface font-bold uppercase">VISION-LANGUAGE</span>
+<span class="text-secondary font-bold">RESEARCH NOTE // 04</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-space-xs">
+              Context Compression for On-Device Multi-Modal Reasoning
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Dynamic pruning of perceptual tokens in visual-language decoders, reducing KV-cache RAM footprint by 74% while preserving defect taxonomy fidelity.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex items-center justify-between font-mono-label text-[11px]">
+<span class="text-on-surface-variant">ENC-RN-2026-11</span>
+<span class="text-on-surface font-bold uppercase">Preprint Forthcoming</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 11: ABOUT ENCEPTO (MISSION, VISION, VALUES)                       -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface" id="about">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg border-b border-outline-variant pb-space-lg">
+<div class="lg:col-span-6 flex flex-col gap-space-xs">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">10 / ABOUT ENCEPTO</span>
+<h2 class="font-display-hero text-headline-lg-mobile lg:text-display-hero text-on-surface">
+            Building AI that survives the real world.
+          </h2>
+</div>
+<div class="lg:col-span-6 flex flex-col gap-space-md font-body-lg text-body-lg text-on-surface-variant">
+<p>
+            Encepto is an embedded AI and frontier engineering lab. We believe artificial intelligence must move beyond air-conditioned server farms and hyper-scale clouds into the physical substrates where human industry actually functions.
+          </p>
+<p class="font-body-md text-body-md">
+            By unifying computer vision, intelligent sensor fusion, and on-silicon vision-language models, we build resilient, self-contained systems that observe, reason, and act deterministically under punishing environmental constraints.
+          </p>
+</div>
+</div>
+<!-- 3 Precision Visual Blocks -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Mission -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold">PILLAR 01 // MISSION</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Bridge the gap between research and real deployment.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Translate advanced perceptual models from theoretical ML papers into hardened, deterministic code executing reliably on sub-watt silicon.
+            </p>
+</div>
+<div class="mt-space-md font-mono-label text-[10px] text-on-surface-variant">
+            FOCUS: APPLIED DETERMINISM
+          </div>
+</div>
+<!-- Vision -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold">PILLAR 02 // VISION</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Endure beyond controlled environments.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Establish a new baseline where edge intelligence functions autonomously indefinitely without constant cloud umbilical cords.
+            </p>
+</div>
+<div class="mt-space-md font-mono-label text-[10px] text-on-surface-variant">
+            FOCUS: AUTONOMOUS SOVEREIGNTY
+          </div>
+</div>
+<!-- Values -->
+<div class="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<span class="font-mono-label text-mono-label text-secondary uppercase font-bold">PILLAR 03 // CORE VALUES</span>
+<ul class="flex flex-col gap-space-xs font-mono-label text-body-sm text-on-surface pt-space-xs">
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<strong>Honesty over hype</strong>
+</li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<strong>Depth over breadth</strong>
+</li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<strong>Resilience by design</strong>
+</li>
+<li class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<strong>IP over bespoke services</strong>
+</li>
+</ul>
+</div>
+<div class="mt-space-md font-mono-label text-[10px] text-on-surface-variant">
+            FOCUS: ENGINEERING RIGOR
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 12: FINAL CTA (START A CONVERSATION)                              -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin-mobile lg:px-margin py-space-xl bg-surface-container" id="contact">
+<div class="max-w-[1440px] mx-auto border border-outline-variant bg-surface p-space-md lg:p-space-xl flex flex-col items-center text-center gap-space-md">
+<div class="flex items-center gap-space-xs font-mono-label text-mono-label text-secondary uppercase font-bold">
+<span class="w-2 h-2 bg-secondary inline-block"></span>
+<span>LAB COLLABORATION INQUIRY</span>
+</div>
+<h2 class="font-display-hero text-headline-lg-mobile lg:text-display-hero text-on-surface max-w-3xl">
+        Have a problem worth solving?
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        Tell us about the environment, the constraint, and the problem. Let’s explore what intelligent physical systems could make possible.
+      </p>
+<div class="flex flex-col sm:flex-row items-center gap-space-md pt-space-sm">
+<a class="px-space-xl py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-widest hover:bg-surface-container-highest hover:text-on-surface transition-all border border-primary flex items-center gap-space-xs font-bold" href="mailto:contact@encepto.ai">
+<span>Start a Conversation</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center gap-space-md font-mono-label text-body-sm text-on-surface-variant pt-space-md border-t border-outline-variant w-full justify-center">
+<span>R&D</span>
+<span>//</span>
+<span>ENGINEERING</span>
+<span>//</span>
+<span>DEPLOYMENT</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Vanilla Interactive Controller Script -->
+<script>
+  // Typing animation simulation in Hero section
+  const typingWords = [
+    "Sense. See. Reason. Act.",
+    "Hardened Edge Silicon.",
+    "Real-Time Computer Vision.",
+    "Sub-Watt Tensor Compute."
+  ];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingTarget = document.getElementById("hero-typing-target");
+
+  function typeTick() {
+    if (!typingTarget) return;
+    const currentWord = typingWords[wordIndex];
+    if (isDeleting) {
+      typingTarget.innerText = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typingTarget.innerText = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let delta = 90;
+    if (isDeleting) delta /= 2;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      delta = 1800;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % typingWords.length;
+      delta = 350;
+    }
+
+    setTimeout(typeTick, delta);
+  }
+  setTimeout(typeTick, 600);
+
+  // HUD Camera stream toggle buttons
+  const hudButtons = [
+    document.getElementById("hud-cam-btn-1"),
+    document.getElementById("hud-cam-btn-2"),
+    document.getElementById("hud-cam-btn-3")
+  ];
+  hudButtons.forEach((btn, idx) => {
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      hudButtons.forEach(b => {
+        b.classList.remove("bg-primary", "text-on-primary");
+        b.classList.add("bg-surface-container", "text-on-surface-variant");
+      });
+      btn.classList.add("bg-primary", "text-on-primary");
+      btn.classList.remove("bg-surface-container", "text-on-surface-variant");
+    });
+  });
+
+  // Telemetry fluctuation simulator
+  const fpsEl = document.getElementById("telemetry-fps");
+  const latencyEl = document.getElementById("telemetry-latency");
+  setInterval(() => {
+    if (fpsEl) {
+      const fps = (41.8 + Math.random() * 1.4).toFixed(1);
+      fpsEl.innerText = fps;
+    }
+    if (latencyEl) {
+      const lat = (11.2 + Math.random() * 1.1).toFixed(1);
+      latencyEl.innerText = lat + "ms";
+    }
+  }, 2200);
+
+  // Architecture Step Interactivity
+  const archStepsData = {
+    1: {
+      title: "CAMERAS & SENSORY ARRAYS",
+      desc: "Multi-spectral optical modules coupled with dual thermal radiometric sensors and vibration microphones. Direct DMA bus transfer with zero OS buffering.",
+      bus: "MIPI CSI-2",
+      lat: "< 1.4ms"
+    },
+    2: {
+      title: "COMPUTER VISION PIPELINE",
+      desc: "Local hardware-accelerated spatial filtering, feature extraction, low-light gain adjustment, and optical flow estimation running at nominal 60 FPS intake.",
+      bus: "AXI STREAM",
+      lat: "2.8ms"
+    },
+    3: {
+      title: "EDGE EMBEDDED ACCELERATORS",
+      desc: "Dedicated sub-5W tensor core silicon executing quantized neural weight registers with direct SRAM allocation, avoiding high-power PCIe interfaces.",
+      bus: "ON-DIE TENSOR DMA",
+      lat: "3.2ms"
+    },
+    4: {
+      title: "INT8 SPECIALIZED AI MODELS",
+      desc: "Quantized classification and object identification models engineered for domain invariance across high-dust and extreme thermal variance profiles.",
+      bus: "TENSOR ACCEL",
+      lat: "2.1ms"
+    },
+    5: {
+      title: "VISION-LANGUAGE REASONING",
+      desc: "Contextual on-device vision-language models synthesising disparate perceptual vectors into structured natural language states and autonomous safety triggers.",
+      bus: "EMBEDDED CONTEXT BUS",
+      lat: "1.9ms"
+    },
+    6: {
+      title: "ACTIONABLE SYSTEM DISPATCH",
+      desc: "Deterministic hardware relay triggering, CAN bus telemetry broadcast, and automated machinery shut-down trips without external network round-trips.",
+      bus: "ISOLATED CAN / GPIO",
+      lat: "< 0.4ms"
+    }
+  };
+
+  function selectArchStep(stepNum) {
+    for (let i = 1; i <= 6; i++) {
+      const card = document.getElementById(`arch-step-${i}`);
+      if (card) {
+        if (i === stepNum) {
+          card.classList.add("border-secondary", "border-2");
+          card.classList.remove("border-outline-variant", "border");
+        } else {
+          card.classList.remove("border-secondary", "border-2");
+          card.classList.add("border-outline-variant", "border");
+        }
+      }
+    }
+    const data = archStepsData[stepNum];
+    if (data) {
+      const titleEl = document.getElementById("arch-detail-title");
+      const descEl = document.getElementById("arch-detail-desc");
+      if (titleEl) titleEl.innerText = data.title;
+      if (descEl) descEl.innerText = data.desc;
+    }
+  }
+
+  // R&D Stage Interactivity
+  const rdStagesData = {
+    1: {
+      title: "01: IDENTIFY & CHARACTERIZE",
+      desc: "We begin with zero assumptions about connectivity or infinite power. Every project defines maximum peak wattage, ambient dust thresholds, and target device cost bounds before writing a line of code."
+    },
+    2: {
+      title: "02: ALGORITHMIC RESEARCH",
+      desc: "We benchmark candidate architectures against our target silicon runtime, investigating domain-specific attention pruning and specialized loss functions that maximize accuracy under low-bit quantization."
+    },
+    3: {
+      title: "03: SILICON HARDWARE PROTOTYPE",
+      desc: "Direct integration on target carrier boards. We write bare-metal hardware-in-the-loop firmware drivers, map registers to DMA channels, and profile memory heat signatures."
+    },
+    4: {
+      title: "04: ENVIRONMENTAL STRESS VALIDATION",
+      desc: "Hardware is placed in environmental testing chambers simulating 55°C heat, power supply voltage dropouts, and heavy particulate silicate fog to identify and rectify failure modes."
+    },
+    5: {
+      title: "05: FIELD COMMENCEMENT & FLASHING",
+      desc: "Deployment on client machinery with dual boot partitions for zero-downtime safety. Technicians calibrate optical alignment on active physical mounting rigs."
+    },
+    6: {
+      title: "06: CONTINUOUS EVOLUTION",
+      desc: "Edge units aggregate non-sensitive telemetry checkpoints locally. Iterative models are fine-tuned offline on synthetic and edge edge-cases, with versioned artifact distribution."
+    }
+  };
+
+  function setRdStep(stageNum) {
+    for (let i = 1; i <= 6; i++) {
+      const card = document.getElementById(`rd-card-${i}`);
+      if (card) {
+        if (i === stageNum) {
+          card.classList.add("border-secondary", "bg-surface-container");
+          card.classList.remove("border-transparent", "bg-surface");
+        } else {
+          card.classList.remove("border-secondary", "bg-surface-container");
+          card.classList.add("border-transparent", "bg-surface");
+        }
+      }
+    }
+    const data = rdStagesData[stageNum];
+    if (data) {
+      const titleEl = document.getElementById("rd-stage-title");
+      const descEl = document.getElementById("rd-stage-desc");
+      if (titleEl) titleEl.innerText = data.title;
+      if (descEl) descEl.innerText = data.desc;
+    }
+  }
+</script></main><footer class="w-full bg-surface-container border-t border-outline-variant"><div class="w-full px-margin-mobile lg:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-lg pb-space-xl border-b border-outline-variant"><div class="lg:col-span-2 flex flex-col justify-between pr-space-lg"><div class="flex flex-col gap-space-sm"><span class="font-headline-md text-headline-md tracking-wider text-on-surface uppercase font-bold">ENCEPTO</span><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Embedded AI · Computer Vision · Intelligent Sensing · Vision-Language Models</p></div><div class="mt-space-lg flex items-center gap-space-xs font-mono-label text-mono-label text-on-surface-variant"><span class="w-2 h-2 bg-secondary inline-block"></span><span>LAB_STATUS // OPERATIONAL 2026.04</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">Technology</span><div class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="technology" href="#">Neural Runtime</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="technology" href="#">Edge Quantization</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="technology" href="#">Sensor Fusion</a></div></div><div class="flex flex-col gap-space-sm"><span class="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">Applications</span><div class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="applications" href="#">Industrial Robotics</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="applications" href="#">Avionics & Defense</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="applications" href="#">Biomedical Devices</a></div></div><div class="flex flex-col gap-space-sm"><span class="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">Research</span><div class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="research" href="#">Preprints & Papers</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="research" href="#">Model Benchmarks</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="case-studies" href="#">Case Studies</a></div></div><div class="flex flex-col gap-space-sm"><span class="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">Company</span><div class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About Encepto</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact & Lab Inquiries</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="login" href="#">Partner Portal</a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md font-mono-label text-mono-label text-on-surface-variant"><div class="flex items-center gap-space-md"><span class="uppercase">© 2026 ENCEPTO LLP. ALL RIGHTS RESERVED.</span><span class="hidden md:inline-block">//</span><span class="hidden md:inline-block uppercase">SYS_ID: ENC-DEEPTECH-V4</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors uppercase" data-path="privacy-policy" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors uppercase" data-path="terms" href="#">Terms</a></div></div></div></footer></body></html>
