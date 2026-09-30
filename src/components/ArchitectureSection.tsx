@@ -1,83 +1,77 @@
 import React, { useState } from 'react';
+import { MaterialIcon } from './MaterialIcon';
 
 interface ArchStep {
   id: number;
   node: string;
   name: string;
-  summary: string;
+  shortDesc: string;
   metric: string;
-  title: string;
-  desc: string;
   bus: string;
   lat: string;
+  icon: string;
 }
 
 const steps: ArchStep[] = [
   {
     id: 1,
     node: 'NODE // 01',
-    name: 'CAMERAS & SENSORS',
-    summary: 'Optical raw CMOS, high-temp thermopiles, 6-DoF IMU, acoustic microphones.',
-    metric: 'INPUT: RAW ANALOG/MIPI',
-    title: 'CAMERAS & SENSORY ARRAYS',
-    desc: 'Multi-spectral optical modules coupled with dual thermal radiometric sensors and vibration microphones. Direct DMA bus transfer with zero OS buffering.',
-    bus: 'MIPI CSI-2',
+    name: 'SENSING',
+    shortDesc: 'Optical CMOS, thermal IR, 6-DoF IMU & acoustic inputs.',
+    metric: 'RAW INTAKE: MIPI CSI-2',
+    bus: 'MIPI CSI-2 / I2C / SPI',
     lat: '< 1.4ms',
+    icon: 'sensors',
   },
   {
     id: 2,
     node: 'NODE // 02',
-    name: 'COMPUTER VISION',
-    summary: 'Spatial feature extraction, de-noising filters, ROI extraction & optical flow.',
-    metric: 'RATE: 60 FPS INTAKE',
-    title: 'COMPUTER VISION PIPELINE',
-    desc: 'Local hardware-accelerated spatial filtering, feature extraction, low-light gain adjustment, and optical flow estimation running at nominal 60 FPS intake.',
-    bus: 'AXI STREAM',
+    name: 'PERCEPTION',
+    shortDesc: 'Spatial de-scattering, ROI isolation & optical flow fields.',
+    metric: 'HARDWARE ISP FLOW',
+    bus: 'AXI STREAM DMA',
     lat: '2.8ms',
+    icon: 'visibility',
   },
   {
     id: 3,
     node: 'NODE // 03',
-    name: 'EMBEDDED COMPUTE',
-    summary: 'Sub-5W tensor hardware, zero-copy memory registers, direct bus arbitration.',
+    name: 'EDGE COMPUTE',
+    shortDesc: 'Sub-5W deterministic tensor execution units.',
     metric: 'POWER: < 4.2 WATTS',
-    title: 'EDGE EMBEDDED ACCELERATORS',
-    desc: 'Dedicated sub-5W tensor core silicon executing quantized neural weight registers with direct SRAM allocation, avoiding high-power PCIe interfaces.',
-    bus: 'ON-DIE TENSOR DMA',
+    bus: 'ZERO-COPY SRAM',
     lat: '3.2ms',
+    icon: 'memory',
   },
   {
     id: 4,
     node: 'NODE // 04',
     name: 'AI MODELS',
-    summary: 'Quantized INT8 CNNs/Transformers tailored for defect & motion classification.',
-    metric: 'WEIGHTS: COMPACT INT8',
-    title: 'INT8 SPECIALIZED AI MODELS',
-    desc: 'Quantized classification and object identification models engineered for domain invariance across high-dust and extreme thermal variance profiles.',
-    bus: 'TENSOR ACCEL',
+    shortDesc: 'Quantized INT8 CNNs & domain transformers.',
+    metric: 'WEIGHTS: INT8 COMPACT',
+    bus: 'ON-CHIP NPU TENSOR',
     lat: '2.1ms',
+    icon: 'hub',
   },
   {
     id: 5,
     node: 'NODE // 05',
     name: 'VLM REASONING',
-    summary: 'Context synthesis across multi-modal tensors into human-inspectable state vectors.',
-    metric: 'LOGIC: EMBEDDED CONTEXT',
-    title: 'VISION-LANGUAGE REASONING',
-    desc: 'Contextual on-device vision-language models synthesising disparate perceptual vectors into structured natural language states and autonomous safety triggers.',
+    shortDesc: 'On-device multimodal contextual state synthesis.',
+    metric: 'TOKEN-PRUNED LOCAL VLM',
     bus: 'EMBEDDED CONTEXT BUS',
     lat: '1.9ms',
+    icon: 'psychology',
   },
   {
     id: 6,
     node: 'NODE // 06',
-    name: 'ACTION & DISPATCH',
-    summary: 'Deterministic CAN bus telemetry, relay triggering, automated shutoff trip signals.',
+    name: 'ACTIONABLE INTELLIGENCE',
+    shortDesc: 'Deterministic relay triggers & isolated CAN dispatch.',
     metric: 'DISPATCH: ZERO BUFFER',
-    title: 'ACTIONABLE SYSTEM DISPATCH',
-    desc: 'Deterministic hardware relay triggering, CAN bus telemetry broadcast, and automated machinery shut-down trips without external network round-trips.',
     bus: 'ISOLATED CAN / GPIO',
     lat: '< 0.4ms',
+    icon: 'electric_bolt',
   },
 ];
 
@@ -99,89 +93,96 @@ export const ArchitectureSection: React.FC = () => {
             </h2>
           </div>
           <div className="flex items-center gap-space-md font-mono-label text-body-sm text-on-surface-variant flex-wrap">
-            <span className="text-secondary font-bold">&lt; 12ms TOTAL SYSTEM LATENCY</span>
-            <span>// ZERO-CLOUD DEPENDENT</span>
+            <span className="text-secondary font-bold">&lt; 12ms DETERMINISTIC LATENCY</span>
+            <span>// ZERO-CLOUD DEPENDENCY</span>
           </div>
         </div>
 
-        {/* Horizontal Architecture Pipeline Flow */}
+        {/* Supporting statement */}
+        <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl -mt-space-sm">
+          A continuous physical-to-decision pipeline running entirely on local silicon.
+        </p>
+
+        {/* Visual Pipeline Flow with Buslines & Animated Packet Indicators */}
         <div className="w-full overflow-x-auto pb-space-sm">
-          <div className="min-w-[980px] grid grid-cols-6 gap-space-xs relative">
-            {/* Bus Connecting Line Indicator */}
-            <div className="col-span-6 h-0.5 bg-outline-variant my-space-xs relative">
-              <div className="absolute left-0 top-0 h-0.5 bg-secondary w-full animate-pulse"></div>
+          <div className="min-w-[980px] flex flex-col gap-space-xs relative">
+            {/* Bus Connecting Animated Line */}
+            <div className="h-1 bg-outline-variant relative my-1 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary to-transparent w-full animate-[pulse_2s_infinite]"></div>
             </div>
 
             {/* 6 Interactive Pipeline Nodes */}
-            {steps.map((step) => {
-              const isSelected = step.id === selectedStep;
-              return (
-                <div
-                  key={step.id}
-                  onClick={() => setSelectedStep(step.id)}
-                  className={`cursor-pointer bg-surface p-space-sm flex flex-col justify-between min-h-[220px] transition-all ${
-                    isSelected
-                      ? 'border-2 border-secondary'
-                      : 'border border-outline-variant hover:border-on-surface'
-                  }`}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setSelectedStep(step.id);
-                    }
-                  }}
-                  aria-pressed={isSelected}
-                  aria-label={`${step.node}: ${step.name}`}
-                >
-                  <div className="flex flex-col gap-space-xs">
-                    <span
-                      className={`font-mono-label text-mono-label font-bold ${
-                        isSelected ? 'text-secondary' : 'text-on-surface-variant'
-                      }`}
-                    >
-                      {step.node}
-                    </span>
-                    <h4 className="font-headline-md text-body-lg text-on-surface font-bold uppercase">
-                      {step.name}
-                    </h4>
-                    <p className="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">
-                      {step.summary}
-                    </p>
+            <div className="grid grid-cols-6 gap-space-xs">
+              {steps.map((step) => {
+                const isSelected = step.id === selectedStep;
+                return (
+                  <div
+                    key={step.id}
+                    onClick={() => setSelectedStep(step.id)}
+                    className={`cursor-pointer bg-surface p-space-sm flex flex-col justify-between min-h-[190px] transition-all relative ${
+                      isSelected
+                        ? 'border-2 border-secondary bg-surface-container'
+                        : 'border border-outline-variant hover:border-on-surface'
+                    }`}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setSelectedStep(step.id);
+                      }
+                    }}
+                    aria-pressed={isSelected}
+                    aria-label={`${step.node}: ${step.name}`}
+                  >
+                    <div className="flex flex-col gap-space-xs">
+                      <div className="flex items-center justify-between font-mono-label text-[10px]">
+                        <span className={`font-bold ${isSelected ? 'text-secondary' : 'text-on-surface-variant'}`}>
+                          {step.node}
+                        </span>
+                        <MaterialIcon name={step.icon} className={`text-[18px] ${isSelected ? 'text-secondary' : 'text-on-surface-variant'}`} />
+                      </div>
+                      <h4 className="font-headline-md text-body-md text-on-surface font-bold uppercase tracking-tight">
+                        {step.name}
+                      </h4>
+                      <p className="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">
+                        {step.shortDesc}
+                      </p>
+                    </div>
+                    <div className="pt-space-xs border-t border-outline-variant/60 font-mono-label text-[10px] text-on-surface-variant flex justify-between items-center">
+                      <span>{step.lat}</span>
+                      <span className="text-secondary font-bold">NODE {step.id}</span>
+                    </div>
                   </div>
-                  <div className="pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
-                    {step.metric}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Dynamic Architecture Inspection Card */}
-        <div className="bg-surface border border-outline-variant p-space-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md transition-colors">
+        {/* Selected Node Telemetry Banner */}
+        <div className="bg-surface border border-outline-variant p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md transition-colors">
           <div className="flex items-center gap-space-md">
-            <div className="w-12 h-12 bg-primary text-on-primary flex items-center justify-center font-mono-metric text-headline-md flex-shrink-0 font-bold">
+            <div className="w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-mono-metric text-body-lg font-bold flex-shrink-0">
               0{activeDetail.id}
             </div>
             <div className="flex flex-col">
-              <span className="font-mono-label text-mono-label text-secondary uppercase font-bold">
-                CURRENT NODE INSPECTION
-              </span>
-              <span className="font-headline-md text-headline-md text-on-surface font-bold">
-                {activeDetail.title}
-              </span>
-              <span className="font-body-md text-body-md text-on-surface-variant max-w-3xl">
-                {activeDetail.desc}
+              <div className="flex items-center gap-2">
+                <span className="font-mono-label text-[10px] text-secondary font-bold uppercase">
+                  ACTIVE NODE // {activeDetail.name}
+                </span>
+                <span className="text-on-surface-variant text-[10px] font-mono-label">// {activeDetail.metric}</span>
+              </div>
+              <span className="font-body-md text-body-md text-on-surface">
+                {activeDetail.shortDesc}
               </span>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-space-sm font-mono-label text-body-sm flex-shrink-0">
-            <span className="bg-surface-container px-space-sm py-1 border border-outline-variant">
-              BUS PROTOCOL: {activeDetail.bus}
+          <div className="flex flex-wrap items-center gap-space-xs font-mono-label text-[11px] flex-shrink-0">
+            <span className="bg-surface-container px-space-xs py-1 border border-outline-variant text-on-surface">
+              BUS: {activeDetail.bus}
             </span>
-            <span className="bg-surface-container px-space-sm py-1 border border-outline-variant">
+            <span className="bg-surface-container px-space-xs py-1 border border-outline-variant text-secondary font-bold">
               LATENCY: {activeDetail.lat}
             </span>
           </div>

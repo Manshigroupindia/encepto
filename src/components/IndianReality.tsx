@@ -1,39 +1,49 @@
 import React from 'react';
+import { MaterialIcon } from './MaterialIcon';
 
-const sectors = [
+const realityItems = [
   {
-    code: 'SECTOR // AGRI',
-    title: 'Agriculture',
-    desc: 'Arid crop field inspection enduring dense dust storms, variable monsoon downpours, and erratic 3-phase agricultural power grids.',
-    constraint: 'CONSTRAINTS: HIGH SILICATE DUST + VOLTAGE SAG',
+    label: 'DUST',
+    sub: 'AIRBORNE SILICATE',
+    value: 'IP67 SEALED',
+    spec: 'CONDUCTION COOLED',
+    icon: 'grain',
   },
   {
-    code: 'SECTOR // IND',
-    title: 'Heavy Industry',
-    desc: 'Forge and casting floors plagued with intense electromagnetic noise, violent ambient vibration harmonics, and ambient radiant heat.',
-    constraint: 'CONSTRAINTS: 55°C HEAT + 10G MECHANICAL VIBRATION',
+    label: 'HEAT',
+    sub: 'OUTDOOR AMBIENT',
+    value: '55°C PASSIVE',
+    spec: '-40°C TO +85°C SILICON',
+    icon: 'thermostat',
   },
   {
-    code: 'SECTOR // INFRA',
-    title: 'Infrastructure',
-    desc: 'Highways, bridge spans, and regional railway track beds subjected to relentless monsoon humidity, lightning transients, and zero cellular signal.',
-    constraint: 'CONSTRAINTS: 99% RH HUMIDITY + REMOTE MILES',
+    label: 'POWER',
+    sub: 'GRID VARIABILITY',
+    value: '9-36V ISOLATED',
+    spec: 'BROWNOUT-SAFE COMMITS',
+    icon: 'bolt',
   },
   {
-    code: 'SECTOR // ENERGY',
-    title: 'Energy & Solar',
-    desc: 'Off-grid solar installations and high-voltage transmission corridors requiring autonomous thermal hotspot detection without grid uplink.',
-    constraint: 'CONSTRAINTS: 24/7 SOLAR CYCLING + ZERO BANDWIDTH',
+    label: 'CONNECTIVITY',
+    sub: 'AIR-GAPPED NETWORKS',
+    value: '100% LOCAL',
+    spec: 'ZERO CLOUD STREAMING',
+    icon: 'wifi_off',
   },
-];
-
-const matrixItems = [
-  { label: 'DUST', value: 'IP67 SEALED' },
-  { label: 'HEAT', value: '+55°C PASSIVE' },
-  { label: 'POWER', value: '9-36V ISOLATED' },
-  { label: 'CONNECTIVITY', value: 'AIR-GAPPED 100%' },
-  { label: 'COST', value: 'SUB-$100 BOM' },
-  { label: 'REMOTE', value: 'FAIL-SAFE DUAL BOOT' },
+  {
+    label: 'COST',
+    sub: 'SILICON ECONOMICS',
+    value: 'SUB-$100 BOM',
+    spec: 'INT4/INT8 QUANTIZED',
+    icon: 'payments',
+  },
+  {
+    label: 'REMOTE',
+    sub: 'UNATTENDED OPS',
+    value: 'AUTONOMOUS',
+    spec: 'DUAL-BOOT WATCHDOG',
+    icon: 'settings_remote',
+  },
 ];
 
 export const IndianReality: React.FC = () => {
@@ -46,61 +56,49 @@ export const IndianReality: React.FC = () => {
             <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
               04 / FIELD ENGINEERING
             </span>
-            <h2 className="font-display-hero text-headline-lg-mobile lg:text-display-hero text-on-surface">
+            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
               Built for India. Ready for the world.
             </h2>
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
-            India is not simply a deployment market for Encepto. Its environmental and infrastructure realities are core engineering constraints that shape the system from the beginning.
+            Real-world constraints are treated as engineering requirements.
           </p>
         </div>
 
-        {/* 4 Real-World Environmental Grid Modules */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-          {sectors.map((sector) => (
+        {/* 6 Large Visual Labels / Hardened Constraint Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm">
+          {realityItems.map((item) => (
             <div
-              key={sector.code}
-              className="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between"
+              key={item.label}
+              className="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between hover:border-secondary transition-colors group relative"
             >
-              <div className="flex flex-col gap-space-sm">
-                <span className="font-mono-label text-mono-label text-secondary font-bold">
-                  {sector.code}
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center justify-between text-on-surface-variant">
+                  <span className="font-mono-label text-[10px] text-secondary font-bold">{item.sub}</span>
+                  <MaterialIcon name={item.icon} className="text-[18px] group-hover:text-secondary transition-colors" />
+                </div>
+                <span className="font-display-hero text-headline-md lg:text-headline-lg text-on-surface font-bold tracking-tight mt-1">
+                  {item.label}
                 </span>
-                <h3 className="font-headline-md text-headline-md text-on-surface">{sector.title}</h3>
-                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  {sector.desc}
-                </p>
+                <span className="font-mono-metric text-body-md text-secondary font-bold">
+                  {item.value}
+                </span>
               </div>
-              <div className="mt-space-md pt-space-xs border-t border-outline-variant font-mono-label text-[10px] text-on-surface-variant">
-                {sector.constraint}
+              <div className="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[9px] text-on-surface-variant font-bold uppercase">
+                {item.spec}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Monospace Telemetry Matrix */}
-        <div className="bg-surface-container-high border border-outline-variant p-space-md">
-          <div className="flex flex-wrap items-center justify-between gap-space-sm font-mono-label text-mono-label border-b border-outline-variant pb-space-xs">
-            <span className="text-on-surface font-bold uppercase">
-              PHYSICAL CONSTRAINT ENGINEERING MATRIX
-            </span>
-            <span className="text-secondary font-bold">SYSTEM LEVEL: HARDENED</span>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm pt-space-sm font-mono-label">
-            {matrixItems.map((item) => (
-              <div key={item.label} className="flex flex-col">
-                <span className="text-[10px] text-on-surface-variant uppercase">{item.label}</span>
-                <span className="text-body-md text-on-surface font-bold font-mono-metric">
-                  {item.value}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Editorial Closing */}
-        <div className="font-body-lg text-body-lg text-on-surface font-medium border-l-2 border-secondary pl-space-md">
-          "What survives demanding conditions here should be ready for deployment anywhere."
+        {/* Editorial Highlight */}
+        <div className="bg-surface-container-high border-l-4 border-secondary p-space-md flex items-center justify-between flex-wrap gap-space-sm font-mono-label text-body-sm">
+          <span className="text-on-surface font-medium">
+            "What survives demanding field conditions here is ready for deployment anywhere."
+          </span>
+          <span className="text-secondary font-bold text-[10px] uppercase">
+            FIELD-VALIDATED // DEEPTECH PARADIGM
+          </span>
         </div>
       </div>
     </section>

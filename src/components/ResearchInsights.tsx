@@ -1,51 +1,43 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { MaterialIcon } from './MaterialIcon';
 
 export interface ResearchNote {
   id: string;
   category: string;
-  noteNumber: string;
   title: string;
-  desc: string;
-  docCode: string;
-  status: string;
+  excerpt: string;
+  code: string;
 }
 
 const defaultNotes: ResearchNote[] = [
   {
     id: 'note-01',
-    category: 'EDGE AI',
-    noteNumber: 'RESEARCH NOTE // 01',
+    category: 'EMBEDDED AI',
     title: 'Quantization Strategies for Sub-5W Visual Transformers',
-    desc: 'Investigating mixed INT4/INT8 precision bounds in self-attention matrices on ARM Cortex and RISC-V edge vector registers without catastrophic accuracy degradation.',
-    docCode: 'ENC-RN-2026-08',
-    status: 'Preprint Forthcoming',
+    excerpt: 'Mixed INT4/INT8 precision bounds on ARM Cortex and RISC-V edge vector registers.',
+    code: 'ENC-RN-2026-08',
   },
   {
     id: 'note-02',
     category: 'COMPUTER VISION',
-    noteNumber: 'RESEARCH NOTE // 02',
-    title: 'Mitigating Atmospheric Particle Occlusion in Low-Cost Optics',
-    desc: 'Algorithmic optical restoration using spatio-temporal coherence kernels to cancel silicate dust scattering in un-shielded agricultural camera installations.',
-    docCode: 'ENC-RN-2026-09',
-    status: 'Preprint Forthcoming',
+    title: 'Mitigating Atmospheric Dust Occlusion in Low-Cost Optics',
+    excerpt: 'Spatio-temporal coherence kernels canceling particulate scatter in unshielded field cameras.',
+    code: 'ENC-RN-2026-09',
   },
   {
     id: 'note-03',
-    category: 'EMBEDDED SYSTEMS',
-    noteNumber: 'RESEARCH NOTE // 03',
+    category: 'EDGE COMPUTING',
     title: 'Zero-Downtime Deterministic Firmware Flashing in Remote Nodes',
-    desc: 'A dual-bank flash memory partition scheme enabling atomic fallback during brownout interruptions on solar-powered rural monitoring arrays.',
-    docCode: 'ENC-RN-2026-10',
-    status: 'Preprint Forthcoming',
+    excerpt: 'Dual-bank flash memory partitions enabling atomic fallback during grid brownouts.',
+    code: 'ENC-RN-2026-10',
   },
   {
     id: 'note-04',
     category: 'VISION-LANGUAGE',
-    noteNumber: 'RESEARCH NOTE // 04',
     title: 'Context Compression for On-Device Multi-Modal Reasoning',
-    desc: 'Dynamic pruning of perceptual tokens in visual-language decoders, reducing KV-cache RAM footprint by 74% while preserving defect taxonomy fidelity.',
-    docCode: 'ENC-RN-2026-11',
-    status: 'Preprint Forthcoming',
+    excerpt: 'Dynamic token pruning in visual decoders, compressing KV-cache footprints for local execution.',
+    code: 'ENC-RN-2026-11',
   },
 ];
 
@@ -67,35 +59,47 @@ export const ResearchInsights: React.FC<ResearchInsightsProps> = ({ notes = defa
               Thinking beyond the model.
             </h2>
           </div>
-          <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
-            Open technical notes, preprints, and engineering investigations exploring hardware constraints, quantization theory, and ambient physical sensing.
-          </p>
+          <Link
+            to="/research"
+            className="px-space-md py-space-xs bg-surface border border-outline-variant font-mono-label text-mono-label uppercase tracking-wider text-on-surface hover:border-secondary hover:text-secondary transition-colors font-bold flex-shrink-0"
+          >
+            Explore Research Portal →
+          </Link>
         </div>
 
-        {/* 4 Technical Journal Articles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+        {/* Article Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
           {notes.map((note) => (
             <div
               key={note.id}
-              className="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-on-surface transition-colors"
+              className="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-secondary transition-colors group"
             >
               <div className="flex flex-col gap-space-xs">
-                <div className="flex items-center justify-between font-mono-label text-body-sm">
-                  <span className="bg-surface-container px-space-xs py-0.5 text-on-surface font-bold uppercase">
+                <div className="flex items-center justify-between font-mono-label text-[10px]">
+                  <span className="bg-surface-container px-1.5 py-0.5 border border-outline-variant text-secondary font-bold">
                     {note.category}
                   </span>
-                  <span className="text-secondary font-bold">{note.noteNumber}</span>
+                  <span className="text-on-surface-variant">{note.code}</span>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-on-surface mt-space-xs">
+                
+                <h3 className="font-headline-md text-body-md text-on-surface font-bold mt-2 group-hover:text-secondary transition-colors line-clamp-2">
                   {note.title}
                 </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  {note.desc}
+                
+                <p className="font-body-sm text-[12px] text-on-surface-variant leading-relaxed line-clamp-2 mt-1">
+                  {note.excerpt}
                 </p>
               </div>
-              <div className="mt-space-md pt-space-sm border-t border-outline-variant flex items-center justify-between font-mono-label text-[11px]">
-                <span className="text-on-surface-variant">{note.docCode}</span>
-                <span className="text-on-surface font-bold uppercase">{note.status}</span>
+
+              <div className="mt-space-md pt-space-xs border-t border-outline-variant/60 flex items-center justify-between font-mono-label text-[11px]">
+                <Link
+                  to="/research"
+                  className="text-secondary font-bold flex items-center gap-1 hover:underline"
+                >
+                  <span>Read Note</span>
+                  <MaterialIcon name="arrow_forward" className="text-[14px]" />
+                </Link>
+                <span className="text-[10px] text-on-surface-variant">PREPRINT</span>
               </div>
             </div>
           ))}

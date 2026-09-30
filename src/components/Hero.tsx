@@ -126,21 +126,21 @@ export const Hero: React.FC = () => {
 
           <div className="lg:col-span-4 flex flex-col gap-space-md">
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Encepto builds modular embedded AI systems that combine computer vision, intelligent sensing, and vision-language models — engineered for real-world deployment.
+              Embedded AI systems combining computer vision, intelligent sensing and vision-language models for real-world deployment.
             </p>
             <div className="flex flex-wrap items-center gap-space-sm pt-space-xs">
               <Link
                 className="px-space-md py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center gap-space-xs font-bold"
                 to="/technology"
               >
-                <span>Explore Our Technology</span>
+                <span>Explore Technology</span>
                 <MaterialIcon name="arrow_forward" className="text-[16px]" />
               </Link>
               <Link
                 className="px-space-md py-space-sm bg-surface-container text-on-surface border border-outline-variant font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest transition-colors font-bold"
                 to="/contact"
               >
-                Partner With Encepto
+                Start a Conversation
               </Link>
             </div>
           </div>

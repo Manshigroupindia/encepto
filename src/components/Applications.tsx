@@ -1,50 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MaterialIcon } from './MaterialIcon';
 
 const applications = [
   {
-    domain: 'DOMAIN // AGRI-01',
-    badge: 'CANOPY TELEMETRY',
-    title: 'Precision Agronomy & Crop Sensing',
-    desc: 'Edge camera nodes mounted on tractors or field poles classifying fungal blight, micro-nutrient deficiencies, and soil moisture boundaries locally without streaming multi-gigabyte video back to cloud servers.',
-    metrics: [
-      { label: 'MODEL', val: 'ENC-AG-YOLO' },
-      { label: 'LATENCY', val: '14.2ms' },
-      { label: 'POWER', val: '2.8W' },
-    ],
+    domain: 'DOMAIN // 01',
+    title: 'Agriculture',
+    desc: 'Field perception, crop canopy sensing and foliar telemetry under dust and solar wash.',
+    icon: 'agriculture',
+    spec: 'CANOPY TELEMETRY · SUB-WATT',
+    anchor: '/applications#agriculture',
   },
   {
-    domain: 'DOMAIN // IND-02',
-    badge: 'HIGH-SPEED QA',
-    title: 'Industrial High-Speed Anomaly Detection',
-    desc: 'Sub-millimeter weld integrity verification and stamping defect isolation at 2,400 parts-per-minute. Fuses high-speed optical vision with 3-axis accelerometer readings to detect mechanical bearing degradation.',
-    metrics: [
-      { label: 'THROUGHPUT', val: '40 PPM' },
-      { label: 'ACCURACY', val: '99.7% F1' },
-      { label: 'INTERFACE', val: 'OPC-UA / CAN' },
-    ],
+    domain: 'DOMAIN // 02',
+    title: 'Industrial',
+    desc: 'High-speed anomaly detection, sub-pixel inspection and closed-loop machinery trips.',
+    icon: 'precision_manufacturing',
+    spec: 'LINE SPEED · SUB-12ms INTERLOCK',
+    anchor: '/applications#industrial',
   },
   {
-    domain: 'DOMAIN // INFRA-03',
-    badge: 'CIVIL HEALTH',
-    title: 'Structural & Railway Defect Monitoring',
-    desc: 'Solar-powered vibration and strain perception units deployed on girder bridges and rail corridors. Runs continuous acoustic frequency transform kernels to detect sub-surface rail fractures prior to catastrophic failure.',
-    metrics: [
-      { label: 'SAMPLING', val: '20 kHz ACOUSTIC' },
-      { label: 'UPTIME', val: '99.98%' },
-      { label: 'ALERT TRIPPING', val: '< 50ms' },
-    ],
+    domain: 'DOMAIN // 03',
+    title: 'Infrastructure',
+    desc: 'Continuous acoustic monitoring and structural fracture tracking on remote spans.',
+    icon: 'reorder',
+    spec: 'ACOUSTIC TRANSFORM · AIR-GAPPED',
+    anchor: '/applications#infrastructure',
   },
   {
-    domain: 'DOMAIN // ENG-04',
-    badge: 'THERMAL RUNAWAY',
-    title: 'Substation & Grid Micro-Monitoring',
-    desc: 'Infrared thermography coupled with spatial visual tracking on distribution transformers. Predicts insulation breakdown and localized arcing events under high-ambient solar loading.',
-    metrics: [
-      { label: 'THERMAL RES', val: '0.05°C NETD' },
-      { label: 'SURGE SHIELD', val: '6kV ISOLATION' },
-      { label: 'RANGE', val: '50 METERS' },
-    ],
+    domain: 'DOMAIN // 04',
+    title: 'Energy',
+    desc: 'Radiometric thermal runaway isolation on transformers and photovoltaic installations.',
+    icon: 'solar_power',
+    spec: 'RADIOMETRIC IR · 6kV ISOLATION',
+    anchor: '/applications#energy',
   },
 ];
 
@@ -61,9 +50,6 @@ export const Applications: React.FC = () => {
             <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
               Technology built across real-world domains.
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Engineering implementations targeting fundamental structural bottlenecks, with measured specs and clean telemetry data.
-            </p>
           </div>
           <Link
             to="/applications"
@@ -73,33 +59,38 @@ export const Applications: React.FC = () => {
           </Link>
         </div>
 
-        {/* 4 Showcase Panels */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+        {/* 4 Large Visual Tiles */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
           {applications.map((app) => (
-            <div
-              key={app.domain}
-              className="bg-surface border border-outline-variant p-space-md flex flex-col justify-between"
+            <Link
+              key={app.title}
+              to={app.anchor}
+              className="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-secondary transition-all group relative cursor-pointer"
             >
               <div className="flex flex-col gap-space-sm">
-                <div className="flex items-center justify-between font-mono-label text-body-sm text-on-surface-variant">
+                <div className="flex items-center justify-between font-mono-label text-[10px] text-on-surface-variant">
                   <span className="text-secondary font-bold">{app.domain}</span>
-                  <span>{app.badge}</span>
+                  <div className="w-8 h-8 rounded bg-surface-container flex items-center justify-center group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+                    <MaterialIcon name={app.icon} className="text-[20px]" />
+                  </div>
                 </div>
-                <h3 className="font-headline-md text-headline-md text-on-surface">{app.title}</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                
+                <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">
+                  {app.title}
+                </h3>
+                
+                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   {app.desc}
                 </p>
               </div>
 
-              <div className="mt-space-md pt-space-sm border-t border-outline-variant grid grid-cols-3 gap-space-xs font-mono-label text-[11px]">
-                {app.metrics.map((m) => (
-                  <div key={m.label}>
-                    <span className="text-on-surface-variant block">{m.label}</span>
-                    <span className="text-on-surface font-bold font-mono-metric text-[13px]">{m.val}</span>
-                  </div>
-                ))}
+              <div className="mt-space-lg pt-space-xs border-t border-outline-variant/60 flex items-center justify-between font-mono-label text-[10px]">
+                <span className="text-on-surface-variant">{app.spec}</span>
+                <span className="text-secondary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Explore →
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
