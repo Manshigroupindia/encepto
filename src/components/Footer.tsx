@@ -146,6 +146,18 @@ export const Footer: React.FC = () => {
             </button>
           </div>
         </div>
+
+        {/* Designer Credit */}
+        <div className="mt-space-lg pt-space-md border-t border-outline-variant/40 flex justify-center text-center">
+          <a
+            href="https://www.manshigroup.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:underline underline-offset-4 decoration-outline-variant transition-colors"
+          >
+            Designed by Manshi Group of Services
+          </a>
+        </div>
       </div>
 
       {/* Legal Dialog / Modal */}
