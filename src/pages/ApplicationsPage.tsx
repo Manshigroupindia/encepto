@@ -2,509 +2,342 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MaterialIcon } from '../components/MaterialIcon';
 
-// 6 Field Reality Constraints
-interface ConstraintModule {
+interface EnvironmentalConstraint {
   id: string;
   name: string;
-  tag: string;
   summary: string;
-  spec: string;
+  solution: string;
   icon: string;
 }
 
-const constraintModules: ConstraintModule[] = [
+const constraints: EnvironmentalConstraint[] = [
   {
     id: 'dust',
-    name: 'DUST',
-    tag: 'ENV // PARTICULATE',
-    summary: 'Abrasive airborne silicate grit fouls camera lenses within hours.',
-    spec: 'IP67 SEALED // CONDUCTION COOLED',
+    name: 'Dust & Particulates',
+    summary: 'Abrasive airborne dust and soil fouling camera lenses and optical sensors.',
+    solution: 'IP67 sealed enclosure with algorithmic dust scatter cancellation.',
     icon: 'grain',
   },
   {
     id: 'heat',
-    name: 'HEAT',
-    tag: 'THERMAL // 55°C',
-    summary: 'Sustained outdoor peaks trigger processor throttling on consumer silicon.',
-    spec: '-40°C TO +85°C SILICON RATED',
+    name: 'Extreme Heat',
+    summary: 'Outdoor temperatures exceeding 50°C causing computer processor overheating.',
+    solution: 'Passive conduction chassis rated for -40°C to +85°C industrial silicon.',
     icon: 'thermostat',
   },
   {
     id: 'power',
-    name: 'POWER',
-    tag: 'GRID // BROWNOUT',
-    summary: 'Erratic grid lines, sudden brownouts and variable solar charge curves.',
-    spec: '9-36V ISOLATED REGULATION',
+    name: 'Unstable Power',
+    summary: 'Frequent power brownouts, voltage spikes and variable solar inputs.',
+    solution: '9–36V isolated power supplies with brownout-safe state preservation.',
     icon: 'bolt',
   },
   {
     id: 'connectivity',
-    name: 'CONNECTIVITY',
-    tag: 'NET // AIR-GAPPED',
-    summary: 'Remote acreage and metal-clad plants experience total cellular blackouts.',
-    spec: '100% LOCAL ON-DEVICE LOOPS',
+    name: 'No Internet / Air-Gapped',
+    summary: 'Remote acreage and heavy steel plant buildings with zero cellular signal.',
+    solution: '100% on-device AI execution with no cloud connection required.',
     icon: 'wifi_off',
   },
   {
     id: 'cost',
-    name: 'COST',
-    tag: 'BOM // SCALABLE',
-    summary: 'Deploying $5,000 server GPUs per sensor is commercially non-viable.',
-    spec: 'SUB-$100 EDGE SILICON BOM',
+    name: 'Hardware Economics',
+    summary: 'Expensive server GPUs are commercially non-viable for widespread deployment.',
+    solution: 'Quantized neural models compiled for affordable sub-$100 edge silicon chips.',
     icon: 'payments',
   },
   {
     id: 'remote',
-    name: 'REMOTE',
-    tag: 'OPS // UNATTENDED',
-    summary: 'Sites located far from technical support centers cannot be serviced manually.',
-    spec: 'DUAL-BOOT WATCHDOG RECOVERY',
+    name: 'Unattended Operation',
+    summary: 'Remote locations that cannot be serviced manually by technicians.',
+    solution: 'Dual-boot firmware with automatic hardware watchdog recovery.',
     icon: 'settings_remote',
   },
 ];
 
 interface ApplicationDomain {
   id: string;
-  num: string;
   title: string;
-  positioning: string;
+  tagline: string;
   icon: string;
   badge: string;
-  hudVisual: {
-    status: string;
-    metrics: { label: string; val: string }[];
-  };
   capabilities: { name: string; desc: string }[];
-  techSpec: string;
+  hardwareSummary: string;
 }
 
 const domains: ApplicationDomain[] = [
   {
     id: 'agriculture',
-    num: '01',
     title: 'Agriculture',
-    positioning: 'Precision field perception, crop canopy monitoring and foliar disease telemetry.',
+    tagline: 'Precision field sensing, crop canopy tracking and automated disease detection.',
     icon: 'agriculture',
-    badge: 'CANOPY TELEMETRY · FIELD SENSING',
-    hudVisual: {
-      status: 'CANOPY SCAN ACTIVE // ENC-AG-YOLO',
-      metrics: [
-        { label: 'INFERENCE', val: '14.2ms' },
-        { label: 'POWER DRAW', val: '2.8 Watts' },
-        { label: 'OPTICAL FILTER', val: 'Dust Scatter Canceller' },
-        { label: 'NETWORK', val: '100% Local Flash' },
-      ],
-    },
+    badge: 'Field Sensing & Canopy Health',
     capabilities: [
-      { name: 'Crop Canopy Telemetry', desc: 'Real-time foliar coverage, leaf area index and canopy vigor mapping.' },
-      { name: 'Blight & Nutrient Stress', desc: 'Sub-millimeter fungal spore and micro-nutrient deficiency detection.' },
-      { name: 'Dust-Invariant Optics', desc: 'Algorithmic scatter cancellation compensating for heavy field dust.' },
-      { name: 'Machinery Integration', desc: 'Direct mounting on tractors and pivots with isolated 12V vehicle power.' },
+      { name: 'Crop Canopy Tracking', desc: 'Real-time foliage monitoring and canopy growth mapping directly from machinery.' },
+      { name: 'Early Blight Detection', desc: 'Identifies fungal blights, nutrient stress and leaf anomalies before pests spread.' },
+      { name: 'Dust-Invariant Vision', desc: 'Custom optical algorithms that cancel airborne dust and bright solar glare.' },
+      { name: 'Tractor & Pivot Mounting', desc: 'Direct installation on agricultural pivots and tractors with 12V vehicle power.' },
     ],
-    techSpec: 'HARDWARE: Sub-5W Edge NPU · Wide-Voltage 9-36V DC · Conduction Cooled IP67',
+    hardwareSummary: 'Low-power edge chip &bull; 9-36V vehicle power regulation &bull; Conduction-cooled IP67 enclosure',
   },
   {
     id: 'industrial',
-    num: '02',
-    title: 'Industrial',
-    positioning: 'High-speed surface inspection, anomaly detection and deterministic safety trips.',
+    title: 'Industrial Manufacturing',
+    tagline: 'Line-speed quality inspection, defect detection and instant safety shutoffs.',
     icon: 'precision_manufacturing',
-    badge: 'LINE-SPEED QA · SUB-12ms TRIP',
-    hudVisual: {
-      status: 'LINE SCAN 120 FPS // HARMONIC STABLE',
-      metrics: [
-        { label: 'THROUGHPUT', val: '2,400 PPM' },
-        { label: 'INTERLOCK', val: '< 0.8ms Relay' },
-        { label: 'VIBRATION TOL', val: '10G Continuous' },
-        { label: 'BUS INTERFACE', val: 'Isolated CAN / OPC-UA' },
-      ],
-    },
+    badge: '120 FPS Line QA & Safety',
     capabilities: [
-      { name: 'Line-Speed Inspection', desc: 'Detects micro-cracks, stamping defects and weld porosity at 120 FPS.' },
-      { name: 'Harmonic Shock Invariance', desc: 'Filters 10G mechanical vibration through fused accelerometer EKFs.' },
-      { name: 'Sub-12ms Interlocks', desc: 'Deterministic hardware relay actuation protecting downstream tooling.' },
-      { name: 'Zero-Copy Direct DMA', desc: 'Bypasses operating system overhead for jitter-free optical intake.' },
+      { name: 'Sub-Pixel Inspection', desc: 'Detects microscopic cracks, stamping defects and weld porosity at conveyor line speed.' },
+      { name: 'Vibration Invariance', desc: 'Filters out heavy machine vibration up to 10G using fused motion sensors.' },
+      { name: 'Sub-12ms Safety Trips', desc: 'Instant electrical relay trips to stop equipment before tool damage or injury occurs.' },
+      { name: 'Zero-Copy Image Processing', desc: 'Bypasses operating system overhead to process camera feeds with zero lag.' },
     ],
-    techSpec: 'HARDWARE: Hardware ISP · Optocoupled Relays · Industrial Isolated CAN Bus',
+    hardwareSummary: 'High-speed camera sensor &bull; Optically isolated relays &bull; Industrial CAN bus interface',
   },
   {
     id: 'infrastructure',
-    num: '03',
     title: 'Infrastructure',
-    positioning: 'Autonomous acoustic and strain monitoring across bridges, highways and railway corridors.',
+    tagline: 'Continuous acoustic monitoring and structural fracture tracking on remote spans.',
     icon: 'reorder',
-    badge: 'CIVIL HEALTH · AIR-GAPPED SPANS',
-    hudVisual: {
-      status: 'ACOUSTIC TRANSFORM // 20 kHz ACTIVE',
-      metrics: [
-        { label: 'SAMPLING', val: '20 kHz FFT' },
-        { label: 'BATTERY BUFFER', val: 'Solar 30-Day Reserve' },
-        { label: 'CHASSIS', val: 'IP67 Sealed Aluminium' },
-        { label: 'UPTIME', val: '99.98% Autonomous' },
-      ],
-    },
+    badge: 'Civil Asset Telemetry',
     capabilities: [
-      { name: 'Acoustic Fracture Detection', desc: 'Continuous FFT transform kernels capturing subsurface fatigue cracks.' },
-      { name: 'Structural Strain Tracking', desc: 'High-precision micro-strain logging on girder bridges and spans.' },
-      { name: 'Solar-Buffered Operation', desc: 'Ultra-low-power idle modes designed for seasonal monsoon conditions.' },
-      { name: 'Remote Air-Gapped Telemetry', desc: 'On-device state classification without reliance on cellular towers.' },
+      { name: 'Acoustic Crack Detection', desc: 'High-frequency acoustic sensors capturing subsurface metal and concrete fatigue.' },
+      { name: 'Micro-Strain Logging', desc: 'Continuous expansion and structural joint strain tracking on girder bridges.' },
+      { name: 'Solar-Buffered Autonomy', desc: 'Ultra-low-power sleep cycles designed to operate through cloudy monsoon seasons.' },
+      { name: 'Air-Gapped Telemetry', desc: 'Analyzes structural safety on-site without needing cell phone tower reception.' },
     ],
-    techSpec: 'HARDWARE: 20 kHz Acoustic ADC · Wide-Temperature Silicon (-40°C to +85°C)',
+    hardwareSummary: '20 kHz acoustic sensing &bull; Wide-temperature silicon (-40°C to +85°C) &bull; Solar battery buffer',
   },
   {
     id: 'energy',
-    num: '04',
-    title: 'Energy',
-    positioning: 'Radiometric thermal runaway isolation on transformers and photovoltaic installations.',
+    title: 'Energy & Power Utilities',
+    tagline: 'Thermal runaway isolation and hot spot monitoring for transformers and solar plants.',
     icon: 'solar_power',
-    badge: 'RADIOMETRIC IR · 6kV SURGE SHIELD',
-    hudVisual: {
-      status: 'LWIR THERMOGRAPHY // 0.05°C NETD',
-      metrics: [
-        { label: 'THERMAL RES', val: '0.05°C NETD' },
-        { label: 'SURGE SHIELD', val: '6kV Optocoupled' },
-        { label: 'RANGE', val: '50m Optical Standoff' },
-        { label: 'FAIL-SAFE', val: 'Dry-Contact Trip' },
-      ],
-    },
+    badge: 'Radiometric IR & Grid Safety',
     capabilities: [
-      { name: 'Radiometric Thermography', desc: 'Calibrated uncooled thermopiles tracking transformer hot spots.' },
-      { name: 'Thermal Runaway Prediction', desc: 'Predicts localized insulation breakdown before catastrophic ignition.' },
-      { name: '6kV Electrical Isolation', desc: 'Surge-shielded power stages resisting high-voltage substation noise.' },
-      { name: 'Solar Diurnal Balancing', desc: 'Compensates for outdoor solar irradiance swings across desert arrays.' },
+      { name: 'Thermal Hotspot Tracking', desc: 'Calibrated radiometric infrared cameras monitoring electrical transformer windings.' },
+      { name: 'Runaway Breakdown Prediction', desc: 'Detects localized insulation failure hours before catastrophic fire or explosion.' },
+      { name: '6kV Electrical Isolation', desc: 'Surge-shielded power stages resisting high-voltage substation electromagnetic noise.' },
+      { name: 'Solar Array Health', desc: 'Scans utility-scale photovoltaic panels for damaged cells and dirt accumulation.' },
     ],
-    techSpec: 'HARDWARE: LWIR Radiometric Array · 6kV Galvanic Isolation · Dry-Contact Relay',
+    hardwareSummary: 'Radiometric infrared array &bull; 6kV galvanic electrical isolation &bull; Fail-safe dry contact trip',
   },
-];
-
-// 6 Engineering Approach Steps
-const approachSteps = [
-  { step: '01', name: 'AUDIT', desc: 'Audit physical dust, heat, vibration and power realities.' },
-  { step: '02', name: 'CONSTRAIN', desc: 'Lock strict wattage, silicon BOM and latency bounds.' },
-  { step: '03', name: 'SENSE', desc: 'Specify optical, thermal, acoustic and IMU sensor inputs.' },
-  { step: '04', name: 'BUILD', desc: 'Train and quantize INT8 models for target edge silicon.' },
-  { step: '05', name: 'STRESS-TEST', desc: 'Subject prototypes to thermal chambers and power sags.' },
-  { step: '06', name: 'COMMENCE', desc: 'Field flashing with zero-downtime dual-boot reliability.' },
 ];
 
 export const ApplicationsPage: React.FC = () => {
   const [activeConstraintId, setActiveConstraintId] = useState<string>('dust');
-  const activeConstraint = constraintModules.find((c) => c.id === activeConstraintId) || constraintModules[0];
+  const activeConstraint = constraints.find((c) => c.id === activeConstraintId) || constraints[0];
 
   return (
-    <div className="flex flex-col w-full text-on-surface antialiased">
-      {/* ========================================================================= */}
-      {/* SECTION 01 — APPLICATIONS HERO                                            */}
-      {/* ========================================================================= */}
-      <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface transition-colors">
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-          {/* Eyebrow */}
-          <div className="flex flex-wrap items-center justify-between gap-space-sm border-b border-outline-variant pb-space-sm font-mono-label text-mono-label text-on-surface-variant">
-            <div className="flex items-center gap-space-xs">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-              </span>
-              <span className="tracking-widest uppercase font-bold text-secondary">01 / APPLICATIONS</span>
-              <span>// DEPLOYMENT SCOPE</span>
-            </div>
-            <div className="flex items-center gap-space-md text-[10px] sm:text-mono-label">
-              <span className="hidden sm:inline-block">TARGETS: AGRICULTURE · INDUSTRY · INFRA · ENERGY</span>
-              <span className="bg-surface-container-high px-space-xs py-0.5 text-on-surface font-bold">
-                FIELD-DEPLOYABLE
-              </span>
-            </div>
-          </div>
+    <div className="flex flex-col w-full text-slate-900 dark:text-slate-100 antialiased">
+      
+      {/* Hero Section */}
+      <section className="w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 py-20 lg:py-24 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl space-y-6">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              Real-World Applications
+            </span>
 
-          {/* Headline & Subtitle */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end pt-space-xs">
-            <div className="lg:col-span-8 flex flex-col gap-space-md">
-              <h1 className="font-display-hero text-display-hero-mobile lg:text-display-hero text-on-surface tracking-tight">
-                Where intelligence meets <br className="hidden sm:inline" />
-                <span className="text-secondary underline decoration-1 underline-offset-8">the real world.</span>
-              </h1>
-              <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-                Encepto applies embedded AI, computer vision, intelligent sensing and vision-language models across demanding physical environments.
-              </p>
-            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              AI Engineered for <br />
+              <span className="text-blue-600 dark:text-blue-400">Demanding Operational Realities.</span>
+            </h1>
 
-            <div className="lg:col-span-4 flex flex-col gap-space-sm">
-              <div className="flex flex-wrap items-center gap-space-sm">
-                <Link
-                  className="px-space-md py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center gap-space-xs font-bold"
-                  to="/contact"
-                >
-                  <span>Start a Conversation</span>
-                  <MaterialIcon name="arrow_forward" className="text-[16px]" />
-                </Link>
-                <Link
-                  className="px-space-md py-space-sm bg-surface-container text-on-surface border border-outline-variant font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest transition-colors font-bold"
-                  to="/technology"
-                >
-                  Explore Technology
-                </Link>
-              </div>
-            </div>
-          </div>
+            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              Encepto brings intelligent vision and sensing to industrial, agricultural and energy sites where ordinary commercial electronics and cloud servers cannot survive.
+            </p>
 
-          {/* Domain Quick Jump Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-xs pt-space-sm font-mono-label">
-            {domains.map((d) => (
-              <a
-                key={d.id}
-                href={`#${d.id}`}
-                className="bg-surface-container p-space-sm border border-outline-variant flex items-center justify-between hover:border-secondary transition-colors"
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link
+                to="/contact"
+                className="px-6 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm transition-all"
               >
-                <div className="flex items-center gap-2">
-                  <MaterialIcon name={d.icon} className="text-[18px] text-secondary" />
-                  <span className="text-body-sm font-bold uppercase">{d.title}</span>
-                </div>
-                <span className="text-[10px] text-secondary font-bold">↓</span>
-              </a>
-            ))}
+                Discuss Your Deployment
+              </Link>
+              <Link
+                to="/technology"
+                className="px-6 py-3.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-semibold text-sm border border-slate-200 dark:border-slate-700 transition-colors"
+              >
+                Explore Technology
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* SECTION 02 — FOUR VISUALLY DOMINANT DOMAINS                               */}
-      {/* ========================================================================= */}
-      <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low transition-colors">
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-space-xl">
-          <div className="flex flex-col gap-space-xs max-w-2xl border-b border-outline-variant pb-space-md">
-            <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
-              02 / DOMAIN PORTFOLIO
+      {/* 4 Dedicated Domain Sections */}
+      <section className="w-full bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800 py-20 lg:py-24 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              Industry Domains
             </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
-              Engineered for physical systems.
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-1.5">
+              Targeted Industrial Capabilities
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant">
-              Every domain leverages our modular stack tailored to specific environmental constraints.
+            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-2 leading-relaxed">
+              Each domain is supported by proven edge sensing architectures, optimized algorithms and hardened physical design.
             </p>
           </div>
 
-          {/* 4 Large Domain Sections */}
-          <div className="flex flex-col gap-space-xl">
-            {domains.map((domain) => (
+          <div className="space-y-12">
+            {domains.map((dom) => (
               <div
-                key={domain.id}
-                id={domain.id}
-                className="bg-surface border border-outline-variant p-space-md lg:p-space-lg flex flex-col gap-space-md transition-colors"
+                key={dom.id}
+                id={dom.id}
+                className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-8 sm:p-10 shadow-xs hover:border-blue-500/40 transition-all"
               >
-                {/* Domain Header */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-space-sm border-b border-outline-variant pb-space-sm">
-                  <div className="flex items-start gap-space-md">
-                    <div className="w-12 h-12 bg-surface-container border border-outline-variant flex items-center justify-center font-bold text-secondary flex-shrink-0">
-                      <MaterialIcon name={domain.icon} className="text-[24px]" />
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                      <MaterialIcon name={dom.icon} className="text-[28px]" />
                     </div>
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono-label text-[10px] text-secondary font-bold">
-                          DOMAIN // {domain.num}
-                        </span>
-                        <span className="text-on-surface-variant text-[10px] font-mono-label uppercase">
-                          // {domain.badge}
-                        </span>
-                      </div>
-                      <h3 className="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface font-bold">
-                        {domain.title}
+                    <div>
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                        {dom.badge}
+                      </span>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight mt-1.5">
+                        {dom.title}
                       </h3>
-                      <p className="font-body-md text-body-md text-secondary font-bold mt-0.5">
-                        {domain.positioning}
-                      </p>
                     </div>
                   </div>
-                </div>
 
-                {/* HUD Telemetry Visual Card */}
-                <div className="bg-surface-container p-space-sm border border-outline-variant font-mono-label text-[11px]">
-                  <div className="flex items-center justify-between border-b border-outline-variant pb-space-xs text-[10px]">
-                    <span className="text-secondary font-bold uppercase">{domain.hudVisual.status}</span>
-                    <span className="text-on-surface-variant">OPERATIONAL METRICS</span>
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-xs pt-space-xs text-center font-bold">
-                    {domain.hudVisual.metrics.map((m) => (
-                      <div key={m.label} className="bg-surface p-2 border border-outline-variant">
-                        <span className="text-[9px] text-on-surface-variant block uppercase font-normal">{m.label}</span>
-                        <span className="text-[12px] text-on-surface font-mono-metric">{m.val}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 4 Capabilities Grid */}
-                <div className="flex flex-col gap-space-xs">
-                  <span className="font-mono-label text-[10px] text-on-surface uppercase font-bold tracking-wider">
-                    TARGET CAPABILITIES:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-xs">
-                    {domain.capabilities.map((cap) => (
-                      <div
-                        key={cap.name}
-                        className="bg-surface-container-low border border-outline-variant p-space-sm flex flex-col justify-between"
-                      >
-                        <div className="flex flex-col gap-1">
-                          <h4 className="font-headline-md text-body-md text-on-surface font-bold">
-                            {cap.name}
-                          </h4>
-                          <p className="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">
-                            {cap.desc}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Hardware Spec Strip */}
-                <div className="pt-space-xs border-t border-outline-variant/60 font-mono-label text-[10px] text-on-surface-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
-                  <span>{domain.techSpec}</span>
-                  <Link to="/contact" className="text-secondary font-bold hover:underline flex items-center gap-1">
-                    <span>Discuss Domain Specifications</span>
-                    <MaterialIcon name="arrow_forward" className="text-[12px]" />
+                  <Link
+                    to="/contact"
+                    className="self-start px-5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-bold transition-colors flex items-center gap-1.5"
+                  >
+                    <span>Discuss {dom.title} Use Case</span>
+                    <MaterialIcon name="arrow_forward" className="text-[14px]" />
                   </Link>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ========================================================================= */}
-      {/* SECTION 03 — BUILT FOR DIFFICULT ENVIRONMENTS (VISUAL CONSTRAINT GRID)    */}
-      {/* ========================================================================= */}
-      <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface transition-colors" id="constraints">
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
-            <div className="flex flex-col gap-space-xs max-w-2xl">
-              <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
-                03 / FIELD REALITY
-              </span>
-              <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
-                Built for Difficult Environments
-              </h2>
-            </div>
-            <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
-              Real-world physical constraints are foundational design inputs rather than afterthought patches.
-            </p>
-          </div>
+                <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed pt-6">
+                  {dom.tagline}
+                </p>
 
-          {/* Visual Constraint Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-xs font-mono-label">
-            {constraintModules.map((c) => {
-              const isSelected = activeConstraintId === c.id;
-              return (
-                <button
-                  key={c.id}
-                  onClick={() => setActiveConstraintId(c.id)}
-                  className={`p-space-sm border flex flex-col justify-between text-left transition-all min-h-[140px] ${
-                    isSelected
-                      ? 'bg-primary text-on-primary border-primary'
-                      : 'bg-surface-container text-on-surface border-outline-variant hover:border-on-surface'
-                  }`}
-                  type="button"
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <span className={`text-[10px] font-bold ${isSelected ? 'text-secondary-container' : 'text-secondary'}`}>
-                      {c.tag}
-                    </span>
-                    <MaterialIcon name={c.icon} className="text-[18px]" />
-                  </div>
-                  <span className="font-display-hero text-headline-md font-bold uppercase my-1">
-                    {c.name}
-                  </span>
-                  <span className={`text-[9px] font-bold ${isSelected ? 'text-on-primary/80' : 'text-on-surface-variant'}`}>
-                    {c.spec}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
+                  {dom.capabilities.map((cap) => (
+                    <div key={cap.name} className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800">
+                      <h4 className="text-sm font-bold text-slate-900 dark:text-white">{cap.name}</h4>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{cap.desc}</p>
+                    </div>
+                  ))}
+                </div>
 
-          {/* Active Constraint Detail Box */}
-          <div className="bg-surface-container p-space-md border border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-mono-label text-body-sm">
-            <div className="flex items-center gap-space-sm">
-              <span className="w-2.5 h-2.5 bg-secondary inline-block"></span>
-              <span className="font-bold text-on-surface">{activeConstraint.name}:</span>
-              <span className="text-on-surface-variant">{activeConstraint.summary}</span>
-            </div>
-            <span className="text-secondary font-bold text-[11px] flex-shrink-0">
-              INVARIANT: {activeConstraint.spec}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* SECTION 04 — APPLICATION APPROACH TIMELINE                                */}
-      {/* ========================================================================= */}
-      <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low transition-colors">
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-          <div className="flex flex-col gap-space-xs max-w-2xl border-b border-outline-variant pb-space-md">
-            <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
-              04 / HOW WE WORK
-            </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
-              Deployment Progression
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-xs font-mono-label">
-            {approachSteps.map((step) => (
-              <div
-                key={step.step}
-                className="bg-surface border border-outline-variant p-space-sm flex flex-col justify-between min-h-[120px]"
-              >
-                <div>
-                  <span className="text-[10px] text-secondary font-bold block">{step.step}</span>
-                  <h4 className="font-headline-md text-body-md text-on-surface font-bold mt-1 uppercase">
-                    {step.name}
-                  </h4>
-                  <p className="font-body-sm text-[11px] text-on-surface-variant leading-relaxed mt-1">
-                    {step.desc}
-                  </p>
+                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                  <span dangerouslySetInnerHTML={{ __html: dom.hardwareSummary }}></span>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium hidden sm:inline">100% Edge Processing</span>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* SECTION 05 — FINAL CTA                                                    */}
-      {/* ========================================================================= */}
-      <section className="w-full px-margin-mobile lg:px-margin py-space-xl bg-surface-container transition-colors">
-        <div className="max-w-[1440px] mx-auto border border-outline-variant bg-surface p-space-md lg:p-space-xl flex flex-col items-center text-center gap-space-md transition-colors">
-          <div className="flex items-center gap-space-xs font-mono-label text-mono-label text-secondary uppercase font-bold">
-            <span className="w-2 h-2 bg-secondary inline-block"></span>
-            <span>NEXT STEPS</span>
+      {/* Field Reality Constraints Section */}
+      <section className="w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 py-20 lg:py-24 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              Challenging Environments
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-1.5">
+              Engineered for Hostile Physical Conditions
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-2 leading-relaxed">
+              We design software and sensor architectures with the explicit assumption that field conditions are hostile, noisy and unpredictable.
+            </p>
           </div>
 
-          <h2 className="font-display-hero text-headline-lg-mobile lg:text-display-hero text-on-surface max-w-3xl">
+          {/* 6 Constraint Tabs */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {constraints.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setActiveConstraintId(c.id)}
+                className={`p-4 rounded-lg border text-left transition-all ${
+                  activeConstraintId === c.id
+                    ? 'bg-blue-50 dark:bg-blue-950/60 border-blue-500 shadow-xs'
+                    : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300'
+                }`}
+              >
+                <div className="w-8 h-8 rounded bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-2">
+                  <MaterialIcon name={c.icon} className="text-[18px]" />
+                </div>
+                <span className="text-xs font-bold text-slate-900 dark:text-white block">
+                  {c.name}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Active Constraint Detail Panel */}
+          <div className="bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center">
+                  <MaterialIcon name={activeConstraint.icon} className="text-[20px]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                    {activeConstraint.name}
+                  </h3>
+                  <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">Environmental Hurdle</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">The Real-World Challenge</h4>
+                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {activeConstraint.summary}
+                </p>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Encepto's Engineering Solution</h4>
+                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {activeConstraint.solution}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="w-full bg-slate-50 dark:bg-slate-900/50 py-20 transition-colors">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
             Have a problem worth solving?
           </h2>
-
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-            Let's explore what we can build together.
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto">
+            Let's explore how AI and intelligent sensing can help your organization succeed.
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center gap-space-sm pt-space-xs">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Link
-              className="px-space-xl py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-widest hover:bg-surface-container-highest hover:text-on-surface transition-all border border-primary flex items-center gap-space-xs font-bold"
               to="/contact"
+              className="px-8 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm transition-all"
             >
-              <span>Start a Conversation</span>
-              <MaterialIcon name="arrow_forward" className="text-[16px]" />
+              Contact Encepto
             </Link>
             <Link
-              className="px-space-lg py-space-sm bg-surface-container text-on-surface border border-outline-variant font-mono-label text-mono-label uppercase tracking-widest hover:bg-surface-container-highest transition-colors font-bold"
-              to="/product"
+              to="/technology"
+              className="px-6 py-3.5 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold text-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-colors"
             >
-              Explore Products &amp; Offerings
+              Explore Technology
             </Link>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
+
+export default ApplicationsPage;

@@ -8,10 +8,10 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu on resize to desktop or route change
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280) {
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
@@ -19,6 +19,7 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
@@ -29,87 +30,93 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant transition-colors">
-      <div className="h-16 w-full px-margin-mobile lg:px-margin flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+      <div className="h-16 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        
         {/* Brand Logo */}
-        <div className="flex items-center gap-space-lg">
-          <Link className="flex flex-col group" to="/">
-            <span className="font-headline-md text-headline-md tracking-wider text-on-surface uppercase font-bold group-hover:text-secondary transition-colors">
-              ENCEPTO
-            </span>
-            <span className="font-mono-label text-mono-label text-on-surface-variant uppercase tracking-widest text-[9px] sm:text-[11px]">
-              Embedded AI · Intelligent Sensing
-            </span>
+        <div className="flex items-center gap-3">
+          <Link className="flex items-center gap-2.5 group" to="/">
+            <div className="w-8 h-8 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center font-bold text-sm tracking-tight shadow-xs group-hover:bg-blue-600 dark:group-hover:bg-blue-500 dark:group-hover:text-white transition-colors">
+              E
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold tracking-wider text-slate-900 dark:text-white uppercase leading-none group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                ENCEPTO
+              </span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider uppercase mt-0.5">
+                Embedded AI &amp; Sensing
+              </span>
+            </div>
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden xl:flex items-center gap-space-lg">
+        {/* Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-7">
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/"
           >
             Home
           </Link>
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/technology')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/technology"
           >
             Technology
           </Link>
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/applications')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/applications"
           >
             Applications
           </Link>
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/product')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/product"
           >
             Product
           </Link>
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/research')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/research"
           >
             Research
           </Link>
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/about')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/about"
           >
             About
           </Link>
           <Link
-            className={`font-mono-label text-mono-label uppercase transition-colors ${
+            className={`text-sm font-medium transition-colors py-1 ${
               isCurrent('/contact')
-                ? 'text-on-surface font-bold border-b border-secondary pb-0.5'
-                : 'text-on-surface-variant hover:text-on-surface'
+                ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             to="/contact"
           >
@@ -117,158 +124,152 @@ export const Navbar: React.FC = () => {
           </Link>
         </nav>
 
-        {/* Right Action Controls */}
-        <div className="flex items-center gap-space-sm sm:gap-space-md">
+        {/* Right Controls: Theme Toggle & Understated CTA */}
+        <div className="flex items-center gap-3">
           {/* Theme Toggle Button */}
           <button
             aria-label="Toggle UI Theme"
-            className="w-9 h-9 border border-outline-variant flex items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors"
+            className="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition-colors"
             onClick={toggleTheme}
             type="button"
           >
             {theme === 'dark' ? (
-              <MaterialIcon name="light_mode" className="text-[18px] text-on-surface" />
+              <MaterialIcon name="light_mode" className="text-[18px]" />
             ) : (
-              <MaterialIcon name="dark_mode" className="text-[18px] text-on-surface" />
+              <MaterialIcon name="dark_mode" className="text-[18px]" />
             )}
           </button>
 
-          {/* CTA Button */}
+          {/* Understated Primary CTA */}
           <Link
-            className="hidden sm:inline-flex items-center justify-center px-space-md h-9 bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider hover:bg-surface-container-highest hover:text-on-surface transition-colors border border-primary font-bold"
+            className="hidden sm:inline-flex items-center justify-center px-4 h-9 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-xs hover:shadow transition-all"
             to="/contact"
           >
-            Start a Conversation
+            Let's Talk
           </Link>
-
 
           {/* Mobile Hamburger Menu Toggle */}
           <button
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="xl:hidden w-9 h-9 border border-outline-variant flex items-center justify-center bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors"
+            className="lg:hidden w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             type="button"
           >
             <MaterialIcon name={mobileMenuOpen ? 'close' : 'menu'} className="text-[20px]" />
           </button>
         </div>
+
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Responsive Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-outline-variant bg-surface px-margin-mobile py-space-md flex flex-col gap-space-md shadow-lg animate-in fade-in duration-200">
-          <nav className="flex flex-col gap-space-sm">
+        <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-5 flex flex-col gap-4 shadow-lg animate-in fade-in duration-150">
+          <nav className="flex flex-col space-y-1">
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Home</span>
-              <span className="text-secondary font-mono-label text-[10px]">00</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/technology') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/technology') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/technology"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Technology</span>
-              <span className="text-secondary font-mono-label text-[10px]">01</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/applications') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/applications') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/applications"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Applications</span>
-              <span className="text-secondary font-mono-label text-[10px]">02</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/product') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/product') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/product"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Product</span>
-              <span className="text-secondary font-mono-label text-[10px]">03</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/research') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/research') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/research"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Research</span>
-              <span className="text-secondary font-mono-label text-[10px]">04</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/about') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/about') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/about"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>About</span>
-              <span className="text-secondary font-mono-label text-[10px]">05</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
             <Link
-              className={`font-mono-label text-body-md uppercase py-2 border-b border-outline-variant/40 flex items-center justify-between ${
-                isCurrent('/contact') ? 'text-secondary font-bold' : 'text-on-surface'
+              className={`text-base font-medium py-2 px-3 rounded-lg flex items-center justify-between transition-colors ${
+                isCurrent('/contact') ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold' : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
               }`}
               to="/contact"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>Contact</span>
-              <span className="text-secondary font-mono-label text-[10px]">06</span>
+              <MaterialIcon name="chevron_right" className="text-[18px] opacity-40" />
             </Link>
           </nav>
 
-          {/* Secondary Mobile Navigation */}
-          <div className="pt-space-xs border-t border-outline-variant/60 flex items-center justify-around font-mono-label text-[10px] text-on-surface-variant uppercase">
+          {/* Secondary Links */}
+          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-around text-xs text-slate-500 dark:text-slate-400 font-medium">
             <Link
               to="/case-studies"
               onClick={() => setMobileMenuOpen(false)}
-              className={`hover:text-on-surface transition-colors ${
-                isCurrent('/case-studies') ? 'text-secondary font-bold' : ''
-              }`}
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
             >
               Case Studies
             </Link>
-            <span>·</span>
+            <span>&bull;</span>
             <Link
               to="/careers"
               onClick={() => setMobileMenuOpen(false)}
-              className={`hover:text-on-surface transition-colors ${
-                isCurrent('/careers') ? 'text-secondary font-bold' : ''
-              }`}
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
             >
               Careers
             </Link>
-            <span>·</span>
+            <span>&bull;</span>
             <Link
               to="/collaboration"
               onClick={() => setMobileMenuOpen(false)}
-              className={`hover:text-on-surface transition-colors ${
-                isCurrent('/collaboration') ? 'text-secondary font-bold' : ''
-              }`}
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
             >
               Collaboration
             </Link>
           </div>
 
           <Link
-            className="w-full flex items-center justify-center py-space-sm bg-primary text-on-primary font-mono-label text-mono-label uppercase tracking-wider border border-primary font-bold"
+            className="w-full flex items-center justify-center py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold shadow-xs hover:bg-blue-700 transition-colors"
             to="/contact"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Start a Conversation
+            Let's Talk
           </Link>
         </div>
       )}

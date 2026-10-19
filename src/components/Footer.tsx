@@ -6,140 +6,135 @@ export const Footer: React.FC = () => {
   const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
 
   return (
-    <footer className="w-full bg-surface-container border-t border-outline-variant transition-colors">
-      <div className="w-full px-margin-mobile lg:px-margin py-space-xl">
+    <footer className="w-full bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-lg pb-space-xl border-b border-outline-variant">
-          {/* Brand Col */}
-          <div className="lg:col-span-4 flex flex-col justify-between pr-space-md">
-            <div className="flex flex-col gap-space-sm">
-              <Link to="/">
-                <span className="font-headline-md text-headline-md tracking-wider text-on-surface uppercase font-bold hover:text-secondary transition-colors">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-200 dark:border-slate-800">
+          
+          {/* Brand Info Column */}
+          <div className="lg:col-span-5 flex flex-col justify-between pr-4 space-y-4">
+            <div className="space-y-3">
+              <Link to="/" className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center font-bold text-sm tracking-tight shadow-xs">
+                  E
+                </div>
+                <span className="text-lg font-bold tracking-wider text-slate-900 dark:text-white uppercase">
                   ENCEPTO
                 </span>
               </Link>
-              <p className="font-body-md text-body-md text-on-surface-variant max-w-sm leading-relaxed">
-                R&amp;D-led deep-tech engineering: AI-driven software systems, embedded sensing, and on-device intelligence built for real-world physical constraints.
+              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">
+                Embedded AI, computer vision and intelligent sensing engineered for real-world physical and industrial environments.
               </p>
             </div>
-            <div className="mt-space-lg flex items-center gap-space-xs font-mono-label text-mono-label text-on-surface-variant">
-              <span className="w-2 h-2 bg-secondary inline-block"></span>
-              <span>LAB_STATUS // OPERATIONAL 2026.04</span>
+
+            <div className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Engineering Lab &bull; Deep-Tech Edge Systems</span>
             </div>
           </div>
 
-          {/* Explore Col */}
-          <div className="lg:col-span-3 flex flex-col gap-space-sm">
-            <span className="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">
+          {/* Explore Column */}
+          <div className="lg:col-span-3 space-y-3">
+            <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Explore
-            </span>
-            <div className="flex flex-col gap-space-xs">
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/"
-              >
-                Home
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/technology"
-              >
-                Technology
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/applications"
-              >
-                Applications
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors font-medium text-secondary"
-                to="/product"
-              >
-                Product &amp; Offerings
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/research"
-              >
-                Research &amp; Insights
-              </Link>
-            </div>
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/technology">
+                  Technology
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/applications">
+                  Applications
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/product">
+                  Product
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/research">
+                  Research
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Company Col */}
-          <div className="lg:col-span-2 flex flex-col gap-space-sm">
-            <span className="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">
+          {/* Company Column */}
+          <div className="lg:col-span-2 space-y-3">
+            <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Company
-            </span>
-            <div className="flex flex-col gap-space-xs">
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/about"
-              >
-                About Encepto
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/case-studies"
-              >
-                Case Studies
-              </Link>
-            </div>
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/about">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/case-studies">
+                  Case Studies
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Connect Col */}
-          <div className="lg:col-span-3 flex flex-col gap-space-sm">
-            <span className="font-mono-label text-mono-label text-on-surface uppercase tracking-wider font-bold">
+          {/* Connect Column */}
+          <div className="lg:col-span-2 space-y-3">
+            <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Connect
-            </span>
-            <div className="flex flex-col gap-space-xs">
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/contact"
-              >
-                Contact &amp; Inquiries
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/careers"
-              >
-                Careers
-              </Link>
-              <Link
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
-                to="/collaboration"
-              >
-                Academic &amp; Lab Collaboration
-              </Link>
-              <a
-                className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors pt-1"
-                href="mailto:contact@encepto.ai"
-              >
-                Direct: contact@encepto.ai
-              </a>
-            </div>
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/contact">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/careers">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" to="/collaboration">
+                  Collaboration
+                </Link>
+              </li>
+              <li className="pt-1">
+                <a className="text-blue-600 dark:text-blue-400 hover:underline text-xs font-medium" href="mailto:contact@encepto.ai">
+                  contact@encepto.ai
+                </a>
+              </li>
+            </ul>
           </div>
+
         </div>
 
-        {/* Bottom Metadata & Legal */}
-        <div className="pt-space-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md font-mono-label text-mono-label text-on-surface-variant">
-          <div className="flex items-center gap-space-md flex-wrap">
-            <span className="uppercase">© 2026 ENCEPTO LLP. ALL RIGHTS RESERVED.</span>
-            <span className="hidden md:inline-block">//</span>
-            <span className="hidden md:inline-block uppercase">SYS_ID: ENC-DEEPTECH-V4</span>
+        {/* Bottom Legal & Credits */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+          <div>
+            &copy; 2026 ENCEPTO LLP. All rights reserved.
           </div>
-          <div className="flex items-center gap-space-lg">
+
+          <div className="flex items-center gap-6">
             <button
               onClick={() => setLegalModal('privacy')}
-              className="hover:text-on-surface transition-colors uppercase cursor-pointer bg-transparent border-0 p-0 font-mono-label text-mono-label"
+              className="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs"
               type="button"
             >
               Privacy Policy
             </button>
             <button
               onClick={() => setLegalModal('terms')}
-              className="hover:text-on-surface transition-colors uppercase cursor-pointer bg-transparent border-0 p-0 font-mono-label text-mono-label"
+              className="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer bg-transparent border-0 p-0 text-xs"
               type="button"
             >
               Terms of Use
@@ -148,29 +143,30 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Designer Credit */}
-        <div className="mt-space-lg pt-space-md border-t border-outline-variant/40 flex justify-center text-center">
+        <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex justify-center text-center">
           <a
             href="https://www.manshigroup.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:underline underline-offset-4 decoration-outline-variant transition-colors"
+            className="text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
           >
             Designed by Manshi Group of Services
           </a>
         </div>
+
       </div>
 
       {/* Legal Dialog / Modal */}
       {legalModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-margin-mobile">
-          <div className="bg-surface border border-outline-variant max-w-xl w-full p-space-lg shadow-2xl flex flex-col gap-space-md animate-in fade-in zoom-in-95 duration-150 font-mono-label">
-            <div className="flex items-center justify-between border-b border-outline-variant pb-space-xs text-[11px]">
-              <span className="text-secondary font-bold uppercase">
-                {legalModal === 'privacy' ? 'DATA INTEGRITY & PRIVACY STATEMENT' : 'TERMS OF ENGAGEMENT & TECHNICAL USE'}
-              </span>
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 max-w-xl w-full p-6 sm:p-7 shadow-2xl flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                {legalModal === 'privacy' ? 'Data Integrity & Privacy Policy' : 'Terms of Engagement & Technical Use'}
+              </h3>
               <button
                 onClick={() => setLegalModal(null)}
-                className="w-6 h-6 flex items-center justify-center hover:bg-surface-container text-on-surface"
+                className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors"
                 type="button"
                 aria-label="Close legal modal"
               >
@@ -178,41 +174,41 @@ export const Footer: React.FC = () => {
               </button>
             </div>
 
-            <div className="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-space-sm leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
+            <div className="text-sm text-slate-600 dark:text-slate-300 flex flex-col gap-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
               {legalModal === 'privacy' ? (
                 <>
                   <p>
-                    <strong>1. Physical Operational Data:</strong> Encepto develops software that runs locally on physical edge hardware. Our models and inference runtimes process raw optical, radiometric, and inertial sensor data on-device without exfiltrating confidential telemetry to public cloud services.
+                    <strong>1. Local Physical Data:</strong> Encepto develops software that runs locally on physical edge hardware. Our models and inference runtimes process raw optical, radiometric and sensor telemetry on-device without exfiltrating confidential data to cloud servers.
                   </p>
                   <p>
-                    <strong>2. Inquiry &amp; Academic Ingestion:</strong> Technical inquiries submitted via our web forms are held in strict confidence and routed exclusively to Encepto engineering and research personnel for technical feasibility review.
+                    <strong>2. Inquiries &amp; Information:</strong> Technical inquiries submitted via our forms are confidential and routed exclusively to Encepto engineering personnel for feasibility assessment.
                   </p>
                   <p>
-                    <strong>3. Data Minimization:</strong> We do not track users with third-party advertising cookies or monetize user session behavioral data.
+                    <strong>3. Data Minimization:</strong> We do not track users with third-party advertising cookies or monetize visitor data.
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    <strong>1. R&amp;D Scope:</strong> Information on this website describes Encepto’s software capabilities, engineering methodologies, and forward-looking research roadmaps. Preprints, benchmark summaries, and architecture overviews are provided for technical evaluation.
+                    <strong>1. Engineering Scope:</strong> Information on this website describes Encepto’s software capabilities, engineering methodologies and research directions for technical evaluation.
                   </p>
                   <p>
-                    <strong>2. Hardware Roadmap Notice:</strong> Descriptions of future integrated hardware enclosures represent active research directions and are not commercial offers of off-the-shelf physical inventory.
+                    <strong>2. Hardware Roadmap:</strong> Descriptions of future integrated hardware enclosures represent active research directions and are not commercial offers of off-the-shelf physical inventory.
                   </p>
                   <p>
-                    <strong>3. Intellectual Property:</strong> Encepto software libraries, neural runtime compilers, and proprietary algorithmic topologies are proprietary assets protected under applicable intellectual property laws.
+                    <strong>3. Intellectual Property:</strong> Encepto software libraries, neural runtime compilers and proprietary algorithmic architectures are assets protected under applicable intellectual property laws.
                   </p>
                 </>
               )}
             </div>
 
-            <div className="pt-space-xs border-t border-outline-variant flex justify-end">
+            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-end">
               <button
                 onClick={() => setLegalModal(null)}
-                className="px-space-md py-1.5 bg-primary text-on-primary font-mono-label text-[10px] uppercase font-bold tracking-wider hover:bg-surface-container-highest hover:text-on-surface transition-colors"
+                className="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold tracking-wide transition-colors"
                 type="button"
               >
-                Acknowledge &amp; Close
+                Close
               </button>
             </div>
           </div>

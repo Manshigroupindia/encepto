@@ -2,97 +2,106 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MaterialIcon } from './MaterialIcon';
 
-const applications = [
+const industries = [
   {
-    domain: 'DOMAIN // 01',
-    title: 'Agriculture',
-    desc: 'Field perception, crop canopy sensing and foliar telemetry under dust and solar wash.',
     icon: 'agriculture',
-    spec: 'CANOPY TELEMETRY · SUB-WATT',
-    anchor: '/applications#agriculture',
+    title: 'Agriculture',
+    subtitle: 'Field Perception',
+    description: 'Crop canopy tracking, leaf disease telemetry and soil moisture monitoring engineered to endure extreme heat, dust and direct sunlight.',
+    feature: 'Dust-Resistant Optics',
   },
   {
-    domain: 'DOMAIN // 02',
-    title: 'Industrial',
-    desc: 'High-speed anomaly detection, sub-pixel inspection and closed-loop machinery trips.',
     icon: 'precision_manufacturing',
-    spec: 'LINE SPEED · SUB-12ms INTERLOCK',
-    anchor: '/applications#industrial',
+    title: 'Industrial',
+    subtitle: 'Manufacturing QA',
+    description: 'High-speed line inspection, automated defect classification and instant mechanical safety shutoffs running under severe vibration.',
+    feature: 'Sub-12ms Safety Trips',
   },
   {
-    domain: 'DOMAIN // 03',
-    title: 'Infrastructure',
-    desc: 'Continuous acoustic monitoring and structural fracture tracking on remote spans.',
     icon: 'reorder',
-    spec: 'ACOUSTIC TRANSFORM · AIR-GAPPED',
-    anchor: '/applications#infrastructure',
+    title: 'Infrastructure',
+    subtitle: 'Civil Health',
+    description: 'Autonomous acoustic and structural fracture monitoring across bridges, rail networks and transport corridors without grid power.',
+    feature: 'Acoustic Fatigue Sensing',
   },
   {
-    domain: 'DOMAIN // 04',
-    title: 'Energy',
-    desc: 'Radiometric thermal runaway isolation on transformers and photovoltaic installations.',
     icon: 'solar_power',
-    spec: 'RADIOMETRIC IR · 6kV ISOLATION',
-    anchor: '/applications#energy',
+    title: 'Energy',
+    subtitle: 'Power & Solar',
+    description: 'Thermal hotspot and runaway detection for electrical substations, utility solar farms and transformers with 6kV surge shielding.',
+    feature: 'Radiometric IR Imaging',
   },
 ];
 
 export const Applications: React.FC = () => {
   return (
-    <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface-container-low transition-colors" id="homepage-applications">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
-          <div className="flex flex-col gap-space-xs max-w-2xl">
-            <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
-              05 / APPLICATION DOMAINS
+    <section className="w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 py-20 lg:py-24 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200 dark:border-slate-800">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              Real-World Applications
             </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
-              Technology built across real-world domains.
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-1.5">
+              Built for Real-World Industry
             </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-2 leading-relaxed">
+              We deploy edge intelligence where traditional cloud systems and standard computers fail to operate.
+            </p>
           </div>
+
           <Link
             to="/applications"
-            className="px-space-md py-space-xs bg-surface border border-outline-variant font-mono-label text-mono-label uppercase tracking-wider text-on-surface hover:border-secondary hover:text-secondary transition-colors font-bold flex-shrink-0"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors shrink-0 group"
           >
-            Explore Applications Page →
+            <span>Explore All Industries</span>
+            <MaterialIcon name="arrow_forward" className="text-[16px] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* 4 Large Visual Tiles */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
-          {applications.map((app) => (
-            <Link
-              key={app.title}
-              to={app.anchor}
-              className="bg-surface border border-outline-variant p-space-md flex flex-col justify-between hover:border-secondary transition-all group relative cursor-pointer"
+        {/* 4 Clean Industry Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12">
+          {industries.map((ind) => (
+            <div
+              key={ind.title}
+              className="bg-slate-50 dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800 p-7 flex flex-col justify-between hover:border-blue-500/50 hover:shadow-sm transition-all group"
             >
-              <div className="flex flex-col gap-space-sm">
-                <div className="flex items-center justify-between font-mono-label text-[10px] text-on-surface-variant">
-                  <span className="text-secondary font-bold">{app.domain}</span>
-                  <div className="w-8 h-8 rounded bg-surface-container flex items-center justify-center group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
-                    <MaterialIcon name={app.icon} className="text-[20px]" />
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-lg bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 border border-slate-200 dark:border-slate-700 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
+                    <MaterialIcon name={ind.icon} className="text-[24px]" />
                   </div>
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+                    {ind.subtitle}
+                  </span>
                 </div>
-                
-                <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">
-                  {app.title}
+
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {ind.title}
                 </h3>
-                
-                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  {app.desc}
+                <p className="text-sm text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+                  {ind.description}
                 </p>
               </div>
 
-              <div className="mt-space-lg pt-space-xs border-t border-outline-variant/60 flex items-center justify-between font-mono-label text-[10px]">
-                <span className="text-on-surface-variant">{app.spec}</span>
-                <span className="text-secondary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  Explore →
+              <div className="pt-6 mt-6 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                  {ind.feature}
                 </span>
+                <Link
+                  to="/applications"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors"
+                >
+                  <span>View</span>
+                  <MaterialIcon name="arrow_forward" className="text-[13px]" />
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

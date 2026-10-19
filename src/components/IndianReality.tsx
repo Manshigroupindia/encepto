@@ -1,104 +1,67 @@
 import React from 'react';
 import { MaterialIcon } from './MaterialIcon';
 
-const realityItems = [
+const conditions = [
   {
-    label: 'DUST',
-    sub: 'AIRBORNE SILICATE',
-    value: 'IP67 SEALED',
-    spec: 'CONDUCTION COOLED',
     icon: 'grain',
+    title: 'Dust',
+    spec: 'Scatter-invariant optics & IP67 sealed design',
   },
   {
-    label: 'HEAT',
-    sub: 'OUTDOOR AMBIENT',
-    value: '55°C PASSIVE',
-    spec: '-40°C TO +85°C SILICON',
     icon: 'thermostat',
+    title: 'Heat',
+    spec: 'Passive conduction up to 55°C ambient peaks',
   },
   {
-    label: 'POWER',
-    sub: 'GRID VARIABILITY',
-    value: '9-36V ISOLATED',
-    spec: 'BROWNOUT-SAFE COMMITS',
     icon: 'bolt',
+    title: 'Power Constraints',
+    spec: '9–36V isolated regulation & brownout safety',
   },
   {
-    label: 'CONNECTIVITY',
-    sub: 'AIR-GAPPED NETWORKS',
-    value: '100% LOCAL',
-    spec: 'ZERO CLOUD STREAMING',
     icon: 'wifi_off',
-  },
-  {
-    label: 'COST',
-    sub: 'SILICON ECONOMICS',
-    value: 'SUB-$100 BOM',
-    spec: 'INT4/INT8 QUANTIZED',
-    icon: 'payments',
-  },
-  {
-    label: 'REMOTE',
-    sub: 'UNATTENDED OPS',
-    value: 'AUTONOMOUS',
-    spec: 'DUAL-BOOT WATCHDOG',
-    icon: 'settings_remote',
+    title: 'Limited Connectivity',
+    spec: '100% autonomous, air-gapped on-device loops',
   },
 ];
 
 export const IndianReality: React.FC = () => {
   return (
-    <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface transition-colors">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
-          <div className="flex flex-col gap-space-xs max-w-2xl">
-            <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
-              04 / FIELD ENGINEERING
+    <section className="w-full bg-surface border-b border-outline-variant/70 transition-colors">
+      <div className="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-12 lg:py-16">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-outline-variant/60">
+          <div>
+            <span className="text-xs font-semibold text-secondary uppercase tracking-wider">
+              Field Resilience
             </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
-              Built for India. Ready for the world.
+            <h2 className="text-xl lg:text-2xl font-semibold text-on-surface tracking-tight mt-1">
+              Designed with real-world constraints in mind.
             </h2>
           </div>
-          <p className="font-body-md text-body-md text-on-surface-variant max-w-md">
-            Real-world constraints are treated as engineering requirements.
+          <p className="text-sm text-on-surface-variant max-w-md">
+            Physical deployment requires hardware-aware software engineered to survive harsh, unpredictable operational conditions.
           </p>
         </div>
 
-        {/* 6 Large Visual Labels / Hardened Constraint Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm">
-          {realityItems.map((item) => (
+        {/* Compact 4-Column Strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
+          {conditions.map((item) => (
             <div
-              key={item.label}
-              className="bg-surface-container border border-outline-variant p-space-md flex flex-col justify-between hover:border-secondary transition-colors group relative"
+              key={item.title}
+              className="p-4 rounded-lg bg-surface-container-low border border-outline-variant/70 flex items-start gap-3.5 hover:border-secondary/60 transition-colors"
             >
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center justify-between text-on-surface-variant">
-                  <span className="font-mono-label text-[10px] text-secondary font-bold">{item.sub}</span>
-                  <MaterialIcon name={item.icon} className="text-[18px] group-hover:text-secondary transition-colors" />
-                </div>
-                <span className="font-display-hero text-headline-md lg:text-headline-lg text-on-surface font-bold tracking-tight mt-1">
-                  {item.label}
-                </span>
-                <span className="font-mono-metric text-body-md text-secondary font-bold">
-                  {item.value}
-                </span>
+              <div className="w-9 h-9 rounded bg-surface border border-outline-variant/60 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+                <MaterialIcon name={item.icon} className="text-[20px]" />
               </div>
-              <div className="mt-space-md pt-space-xs border-t border-outline-variant/60 font-mono-label text-[9px] text-on-surface-variant font-bold uppercase">
-                {item.spec}
+              <div>
+                <h3 className="text-sm font-semibold text-on-surface">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-on-surface-variant mt-1 leading-normal">
+                  {item.spec}
+                </p>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Editorial Highlight */}
-        <div className="bg-surface-container-high border-l-4 border-secondary p-space-md flex items-center justify-between flex-wrap gap-space-sm font-mono-label text-body-sm">
-          <span className="text-on-surface font-medium">
-            "What survives demanding field conditions here is ready for deployment anywhere."
-          </span>
-          <span className="text-secondary font-bold text-[10px] uppercase">
-            FIELD-VALIDATED // DEEPTECH PARADIGM
-          </span>
         </div>
       </div>
     </section>

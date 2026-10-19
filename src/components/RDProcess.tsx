@@ -1,145 +1,95 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { MaterialIcon } from './MaterialIcon';
 
-const stages = [
+const workSteps = [
   {
-    id: 1,
-    num: '01',
-    name: 'IDENTIFY',
-    sentence: 'Define physical operating constraints, silicon BOM limits and sensor optics.',
-    gate: 'SENSOR PRD LOCKED',
+    step: '01',
+    name: 'Research',
+    summary: 'Analyze physical requirements, thermal thresholds and target hardware budgets.',
   },
   {
-    id: 2,
-    num: '02',
-    name: 'RESEARCH',
-    sentence: 'Benchmark model topologies and formulate low-bit quantization bounds.',
-    gate: 'PARETO MODEL SELECTED',
+    step: '02',
+    name: 'Build',
+    summary: 'Develop optimized neural models, camera ingestion pipelines and bare-metal runtimes.',
   },
   {
-    id: 3,
-    num: '03',
-    name: 'PROTOTYPE',
-    sentence: 'Bare-metal bring-up and hardware-in-the-loop driver integration on silicon.',
-    gate: 'SUB-WATT VERIFIED',
+    step: '03',
+    name: 'Test',
+    summary: 'Rigorously validate systems under extreme heat, heavy dust, vibration and power brownouts.',
   },
   {
-    id: 4,
-    num: '04',
-    name: 'VALIDATE',
-    sentence: 'Stress-test in chambers simulating 55°C heat, particulate fog and voltage sags.',
-    gate: 'STRESS TEST PASSED',
-  },
-  {
-    id: 5,
-    num: '05',
-    name: 'DEPLOY',
-    sentence: 'Field commencement on operational rigs with dual-boot zero-downtime safety.',
-    gate: 'FIELD ACCEPTANCE MET',
-  },
-  {
-    id: 6,
-    num: '06',
-    name: 'EVOLVE',
-    sentence: 'Aggregate telemetry checkpoints offline to compound into reusable IP.',
-    gate: 'IP ASSET COMMITTED',
+    step: '04',
+    name: 'Deploy',
+    summary: 'Install and commission software on operational machines with autonomous fail-safe recovery.',
   },
 ];
 
 export const RDProcess: React.FC = () => {
-  const [activeStage, setActiveStage] = useState<number>(1);
-  const current = stages.find((s) => s.id === activeStage) || stages[0];
-
   return (
-    <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-surface transition-colors">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant pb-space-md">
-          <div className="flex flex-col gap-space-xs max-w-2xl">
-            <span className="font-mono-label text-mono-label text-secondary uppercase font-bold tracking-widest">
-              06 / R&D PROCESS
+    <section className="w-full bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800 py-20 lg:py-24 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200 dark:border-slate-800">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              Our Process
             </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">
-              From research question to field deployment.
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mt-1.5">
+              How We Work
             </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-2 leading-relaxed">
+              A structured engineering approach designed to move smoothly from initial problem investigation to reliable production deployment.
+            </p>
           </div>
-          <span className="font-mono-label text-body-sm text-secondary font-bold">
-            STAGE-GATED ENGINEERING PIPELINE
-          </span>
+
+          <Link
+            to="/product"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors shrink-0 group"
+          >
+            <span>Learn About Our Engineering Approach</span>
+            <MaterialIcon name="arrow_forward" className="text-[16px] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
-        {/* Connected Technical Timeline */}
-        <div className="relative">
-          {/* Connecting Line (desktop) */}
-          <div className="hidden lg:block absolute top-[28px] left-[5%] right-[5%] h-0.5 bg-outline-variant z-0">
-            <div className="h-0.5 bg-secondary w-full"></div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-xs relative z-10">
-            {stages.map((st) => {
-              const isActive = st.id === activeStage;
-              return (
-                <div
-                  key={st.id}
-                  onClick={() => setActiveStage(st.id)}
-                  className={`cursor-pointer p-space-sm bg-surface border transition-all flex flex-col justify-between min-h-[170px] ${
-                    isActive
-                      ? 'border-secondary shadow-sm ring-1 ring-secondary'
-                      : 'border-outline-variant hover:border-on-surface'
-                  }`}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setActiveStage(st.id);
-                    }
-                  }}
-                  aria-pressed={isActive}
-                  aria-label={`Stage ${st.num}: ${st.name}`}
-                >
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center justify-between">
-                      <span className={`w-7 h-7 rounded-full flex items-center justify-center font-mono-metric text-body-sm font-bold ${
-                        isActive ? 'bg-secondary text-on-secondary' : 'bg-surface-container text-on-surface'
-                      }`}>
-                        {st.num}
-                      </span>
-                      <span className="font-mono-label text-[9px] text-on-surface-variant font-bold">
-                        STEP {st.id}/6
-                      </span>
-                    </div>
-
-                    <h4 className="font-headline-md text-body-md text-on-surface font-bold uppercase mt-1">
-                      {st.name}
-                    </h4>
-
-                    <p className="font-body-sm text-[11px] text-on-surface-variant leading-relaxed">
-                      {st.sentence}
-                    </p>
-                  </div>
-
-                  <div className="mt-space-xs pt-space-xs border-t border-outline-variant/60 font-mono-label text-[9px] text-secondary font-bold truncate">
-                    {st.gate}
-                  </div>
+        {/* 4-Step Horizontal Pipeline: Research → Build → Test → Deploy */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12">
+          {workSteps.map((item, idx) => (
+            <div
+              key={item.name}
+              className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 p-7 flex flex-col justify-between hover:border-blue-500/50 hover:shadow-sm transition-all group"
+            >
+              <div>
+                <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider">
+                    STEP {item.step}
+                  </span>
+                  {idx < workSteps.length - 1 && (
+                    <span className="hidden lg:inline text-slate-300 dark:text-slate-700 font-bold">
+                      &rarr;
+                    </span>
+                  )}
                 </div>
-              );
-            })}
-          </div>
+
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {item.name}
+                </h3>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+                  {item.summary}
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+                <span className="text-xs font-medium text-slate-400 dark:text-slate-500">
+                  Verified Phase Gate
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Selected Stage Callout */}
-        <div className="bg-surface-container p-space-md border border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-mono-label text-body-sm">
-          <div className="flex items-center gap-space-sm">
-            <span className="w-2.5 h-2.5 bg-secondary inline-block"></span>
-            <span className="font-bold text-on-surface">STAGE {current.num} // {current.name}:</span>
-            <span className="text-on-surface-variant">{current.sentence}</span>
-          </div>
-          <div className="flex items-center gap-1 text-secondary font-bold text-[11px] flex-shrink-0">
-            <MaterialIcon name="verified" className="text-[16px]" />
-            <span>GATE: {current.gate}</span>
-          </div>
-        </div>
       </div>
     </section>
   );

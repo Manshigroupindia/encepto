@@ -1,32 +1,37 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-import { ProblemSection } from '../components/ProblemSection';
 import { TechnologyPillars } from '../components/TechnologyPillars';
-import { ArchitectureSection } from '../components/ArchitectureSection';
-import { IndianReality } from '../components/IndianReality';
 import { Applications } from '../components/Applications';
 import { RDProcess } from '../components/RDProcess';
 import { ReusableIP } from '../components/ReusableIP';
-import { CaseStudies } from '../components/CaseStudies';
 import { ResearchInsights } from '../components/ResearchInsights';
-import { AboutPreview } from '../components/AboutPreview';
 import { FinalCTA } from '../components/FinalCTA';
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="flex flex-col w-full text-on-surface antialiased">
+    <div className="flex flex-col w-full text-slate-900 dark:text-slate-100 antialiased">
+      {/* 1. Hero: AI That Works Beyond the Lab */}
       <Hero />
-      <ProblemSection />
+
+      {/* 2. Technology: Embedded AI, Computer Vision, Intelligent Sensing, Vision-Language Models */}
       <TechnologyPillars />
-      <ArchitectureSection />
-      <IndianReality />
+
+      {/* 3. Applications: Agriculture, Industrial, Infrastructure, Energy */}
       <Applications />
+
+      {/* 4. How We Work: Research → Build → Test → Deploy */}
       <RDProcess />
+
+      {/* 5. Product Preview: Software-First Approach */}
       <ReusableIP />
-      <CaseStudies />
+
+      {/* 6. Research & Case Studies: Compact Preview */}
       <ResearchInsights />
-      <AboutPreview />
+
+      {/* 7. Contact CTA: Have a problem worth solving? */}
       <FinalCTA />
     </div>
   );
 };
+
+export default HomePage;

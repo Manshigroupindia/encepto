@@ -1,90 +1,82 @@
 import React from 'react';
-
-const loopNodes = [
-  { step: '01', name: 'Deployment', desc: 'Field operation on real machinery' },
-  { step: '02', name: 'Learning', desc: 'Telemetry aggregation & edge cases' },
-  { step: '03', name: 'Reusable IP', desc: 'Modular models, kernels & drivers' },
-  { step: '04', name: 'Next System', desc: 'Accelerated, hardened architecture' },
-];
-
-const ipAssets = [
-  { tag: 'IP ASSET 01', title: 'Knowledge', desc: 'Failure mode taxonomies under non-ideal industrial conditions.' },
-  { tag: 'IP ASSET 02', title: 'Models', desc: 'Compact neural blocks tuned for high-noise field environments.' },
-  { tag: 'IP ASSET 03', title: 'Runtimes', desc: 'Zero-copy DMA memory patterns avoiding OS latency penalties.' },
-  { tag: 'IP ASSET 04', title: 'Patterns', desc: 'Brownout-safe atomic commits and hardware watchdog recovery.' },
-];
+import { Link } from 'react-router-dom';
+import { MaterialIcon } from './MaterialIcon';
 
 export const ReusableIP: React.FC = () => {
   return (
-    <section className="w-full px-margin-mobile lg:px-margin py-space-xl border-b border-outline-variant bg-primary-container text-on-primary transition-colors">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-on-primary-container/30 pb-space-md">
-          <div className="flex flex-col gap-space-xs max-w-2xl">
-            <span className="font-mono-label text-mono-label text-secondary-container uppercase font-bold tracking-widest">
-              07 / REUSABLE INTELLIGENCE
-            </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-primary">
-              Every deployment builds the next system.
-            </h2>
-          </div>
-          <p className="font-body-md text-body-md text-on-primary-container max-w-md">
-            Field learning compounds directly into modular, reusable deep-tech IP rather than one-off custom builds.
-          </p>
-        </div>
-
-        {/* Visual Closed Loop Diagram: Deployment → Learning → Reusable IP → Next System → Deployment */}
-        <div className="bg-surface-container-highest/10 border border-on-primary-container/20 p-space-md">
-          <div className="font-mono-label text-[10px] text-secondary-container mb-space-sm uppercase font-bold tracking-wider">
-            COMPOUNDING IP ARCHITECTURE LOOP
-          </div>
+    <section className="w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 py-20 lg:py-24 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-space-sm items-center text-center font-mono-label">
-            {loopNodes.map((node, idx) => (
-              <div
-                key={node.step}
-                className="p-space-sm border border-on-primary-container/30 bg-surface-container-highest/15 flex flex-col items-center justify-between min-h-[110px] relative"
+          {/* Left Column: Software-First Explanation & Direct CTA */}
+          <div className="lg:col-span-7 flex flex-col items-start gap-5">
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              Product &amp; Offerings
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
+              Software-First AI for Real-World Hardware
+            </h2>
+
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              Encepto designs production software for commercial edge silicon. We develop quantized neural models, fast camera drivers and deterministic runtimes, while collaborating with partners on customized engineering and research.
+            </p>
+
+            <div className="pt-2">
+              <Link
+                to="/product"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm hover:shadow transition-all group"
               >
-                <div className="w-full flex justify-between items-center text-[10px] text-secondary-container font-bold">
-                  <span>STEP {node.step}</span>
-                  {idx < loopNodes.length - 1 ? (
-                    <span className="text-secondary-container">→</span>
-                  ) : (
-                    <span className="text-secondary-container">↺ REPEATS</span>
-                  )}
-                </div>
-                <span className="text-body-md text-on-primary font-bold uppercase my-1">
-                  {node.name}
-                </span>
-                <span className="text-[11px] text-on-primary-container">
-                  {node.desc}
-                </span>
-              </div>
-            ))}
+                <span>Explore Product Approach</span>
+                <MaterialIcon name="arrow_forward" className="text-[18px] group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
+
+          {/* Right Column: 3 Clean Minimal Cards */}
+          <div className="lg:col-span-5 space-y-4 w-full">
+            
+            {/* Card 1: Today */}
+            <div className="p-5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-colors">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Today</span>
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">Software-First</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Edge AI Software &amp; Drivers</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                Production-ready quantized neural models, zero-copy camera ingestion and real-time inference on commercial chips.
+              </p>
+            </div>
+
+            {/* Card 2: Engagements */}
+            <div className="p-5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-colors">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Customer Projects</span>
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Collaborative</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Tailored Engineering &amp; R&amp;D</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                Custom sensor integration, model compression and rigorous validation solving specific industrial bottlenecks.
+              </p>
+            </div>
+
+            {/* Card 3: Future Roadmap */}
+            <div className="p-5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-colors">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Future Horizon</span>
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">R&amp;D Roadmap</span>
+              </div>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Integrated Turnkey Systems</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                Active research into ruggedized silicon carrier boards co-designed with custom optics and proprietary neural IP.
+              </p>
+            </div>
+
+          </div>
+
         </div>
 
-        {/* 4 Compounding IP Assets */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
-          {ipAssets.map((asset) => (
-            <div
-              key={asset.tag}
-              className="border border-on-primary-container/20 p-space-sm bg-surface-container-highest/5 flex flex-col justify-between"
-            >
-              <div>
-                <span className="font-mono-label text-[10px] text-secondary-container uppercase font-bold">
-                  {asset.tag}
-                </span>
-                <h4 className="font-headline-md text-body-md text-on-primary mt-1 font-bold">
-                  {asset.title}
-                </h4>
-                <p className="font-body-sm text-[11px] text-on-primary-container mt-1 leading-relaxed">
-                  {asset.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
