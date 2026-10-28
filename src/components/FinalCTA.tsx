@@ -41,8 +41,8 @@ export const FinalCTA: React.FC = () => {
           <div className="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-center gap-6 text-xs text-slate-500 dark:text-slate-400">
             <span>Direct engineering review</span>
             <span>&bull;</span>
-            <a href="mailto:contact@encepto.ai" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-              contact@encepto.ai
+            <a href="mailto:contact@encepto.in" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+              contact@encepto.in
             </a>
             <span>&bull;</span>
             <span>Response within 24 hours</span>

@@ -109,8 +109,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li className="pt-1">
-                <a className="text-blue-600 dark:text-blue-400 hover:underline text-xs font-medium" href="mailto:contact@encepto.ai">
-                  contact@encepto.ai
+                <a className="text-blue-600 dark:text-blue-400 hover:underline text-xs font-medium" href="mailto:contact@encepto.in">
+                  contact@encepto.in
                 </a>
               </li>
             </ul>
